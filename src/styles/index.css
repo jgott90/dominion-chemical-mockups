@@ -1,0 +1,23 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+:root {
+  font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
+
+  line-height: 1.5;
+  font-weight: 400;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* Change to white */
+}
+
+body {
+  background-color: #FFFFFF;
+  /* Change to white */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
