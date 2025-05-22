@@ -1,47 +1,64 @@
-// Navbar.jsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "../styles/Navbar.css";
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/navbar.css";
 
 function Navbar() {
-    const [query, setQuery] = useState("");
+    const [searchQuery, setSearchQuery] = useState("");
+    const navigate = useNavigate();
 
     const handleSearch = (e) => {
         e.preventDefault();
-        if (query.trim()) {
-            window.location.href = `/search?q=${encodeURIComponent(query)}`;
+        if (searchQuery.trim()) {
+            navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
         }
     };
 
-
-
     return (
-        <nav className="navbar">
-            <div className="navbar-container">
-                <div className="logo-container">
-                    <img src="/images/logo.jpg" alt="Logo" className="logo-image" />
-                </div>
-                <div className="navbar-inner">
-                    <ul className="nav-links">
-                        <li><a href="/" className="nav-link">Home</a></li>
-                        <li><a href="/products" className="nav-link">Products</a></li>
-                        <li><a href="/services" className="nav-link">Services</a></li>
-                        <li><a href="/about" className="nav-link">About</a></li>
-                        <li><a href="/contact" className="nav-link">Contact</a></li>
-                    </ul>
-                    <form className="search-container" onSubmit={handleSearch}>
-                        <input
-                            type="text"
-                            className="search-input"
-                            placeholder="Search..."
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
-                        <button type="submit" className="search-button">Go</button>
-                    </form>
-                </div>
+        <header className="navbar">
+            <div className="navbar-left">
+                <Link to="/" className="logo">
+                    <img src="/images/logo.jpg" alt="Dominion Chemical Logo" />
+                    <span>Dominion Chemical</span>
+                </Link>
             </div>
-        </nav>
+
+            <nav className="navbar-links">
+                <ul className="nav-menu">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+
+                    <li className="dropdown-parent">
+                        <span>Products</span>
+                        <ul className="dropdown">
+                            <li><Link to="/products/industrial">Industrial Chemicals</Link></li>
+                            <li><Link to="/products/waxes">Waxes</Link></li>
+                            <li><Link to="/products/emulsions">Wax Emulsions</Link></li>
+                        </ul>
+                    </li>
+
+                    <li className="dropdown-parent">
+                        <span>Services</span>
+                        <ul className="dropdown">
+                            <li><Link to="/services/blending">Blending</Link></li>
+                            <li><Link to="/services/packaging">Packaging</Link></li>
+                            <li><Link to="/services/def">DEF</Link></li>
+                        </ul>
+                    </li>
+
+                    <li><Link to="/contact">Contact</Link></li>
+                </ul>
+            </nav>
+
+            <form className="navbar-search" onSubmit={handleSearch}>
+                <input
+                    type="text"
+                    placeholder="Search for chemicals..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button type="submit">Go</button>
+            </form>
+        </header>
     );
 }
 
