@@ -6,18 +6,35 @@
 /* Global Styles */
 :root {
   font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
-
   line-height: 1.5;
   font-weight: 400;
   color: #000000;
   background-color: #FFFFFF;
-  /* Change to white */
 }
 
+html,
 body {
-  background-color: #FFFFFF;
-  /* Change to white */
   margin: 0;
   padding: 0;
+  background-color: #FFFFFF;
   box-sizing: border-box;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Remove padding/margin from root app container if present */
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
 }

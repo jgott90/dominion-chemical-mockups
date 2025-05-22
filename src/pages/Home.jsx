@@ -45,14 +45,14 @@ const Home = () => {
             <section className="services-section">
                 <h2 className="services-heading">Services</h2>
                 <div className="services-grid">
-                    <Link to="/services/blending" className="service-card">
+                    <Link to="/services/customform" className="service-card">
                         <div className="service-icon">🔬</div>
-                        <h3>Blending</h3>
+                        <h3>Customized Wax Formulation</h3>
                         <p>Optimize for variety and blending.</p>
                     </Link>
                     <Link to="/services/packaging" className="service-card">
                         <div className="service-icon">📦</div>
-                        <h3>Packaging</h3>
+                        <h3>Blending & Packaging</h3>
                         <p>Custom solutions provided.</p>
                     </Link>
                     <Link to="/services/def" className="service-card">
