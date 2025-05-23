@@ -136,3 +136,21 @@
         flex-wrap: wrap;
     }
 }
+
+@media (max-width: 600px) {
+
+    .navbar-left,
+    .navbar-links,
+    .navbar-search {
+        width: 100%;
+    }
+
+    .navbar-links .nav-menu {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .navbar-search {
+        margin-top: 1rem;
+    }
+}
