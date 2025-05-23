@@ -20,21 +20,26 @@ body {
   box-sizing: border-box;
   width: 100vw;
   min-height: 100vh;
+  height: 100%;
   overflow-x: hidden;
 }
 
-/* Remove padding/margin from root app container if present */
 #root {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  height: 100vh;
 }
 
 .main-content {
-  flex: 1;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
