@@ -1,12 +1,12 @@
-// src/pages/About.jsx
+// src/pages/Contact.jsx
 import React from "react";
 
-function About() {
+function Contact() {
     return (
         <div className="text-center mt-10 text-2xl">
-            About Dominion Chemical - Our History and Mission
+            Contact Me
         </div>
     );
 }
 
-export default About;
+export default Contact;

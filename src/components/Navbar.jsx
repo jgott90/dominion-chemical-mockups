@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/navbar.css";
+import "../styles/Navbar.css";
 
 function Navbar() {
     const [searchQuery, setSearchQuery] = useState("");
+    const [openDropdown, setOpenDropdown] = useState(null);
+
     const navigate = useNavigate();
 
     const handleSearch = (e) => {
@@ -12,6 +14,22 @@ function Navbar() {
             navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
         }
     };
+
+    // Toggle dropdowns by name
+    const toggleDropdown = (menu) => {
+        setOpenDropdown(openDropdown === menu ? null : menu);
+    };
+
+    // Close dropdowns when clicking outside
+    useEffect(() => {
+        const handleClick = (e) => {
+            if (!e.target.closest('.dropdown-parent')) {
+                setOpenDropdown(null);
+            }
+        };
+        document.addEventListener('mousedown', handleClick);
+        return () => document.removeEventListener('mousedown', handleClick);
+    }, []);
 
     return (
         <header className="navbar">
@@ -27,7 +45,14 @@ function Navbar() {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
 
-                    <li className="dropdown-parent">
+                    <li
+                        className={`dropdown-parent${openDropdown === 'products' ? ' open' : ''}`}
+                        onClick={() => toggleDropdown('products')}
+                        tabIndex={0}
+                        onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') toggleDropdown('products'); }}
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === 'products'}
+                    >
                         <span>Products</span>
                         <ul className="dropdown">
                             <li><Link to="/products/industrial">Industrial Chemicals</Link></li>
@@ -36,7 +61,14 @@ function Navbar() {
                         </ul>
                     </li>
 
-                    <li className="dropdown-parent">
+                    <li
+                        className={`dropdown-parent${openDropdown === 'services' ? ' open' : ''}`}
+                        onClick={() => toggleDropdown('services')}
+                        tabIndex={0}
+                        onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') toggleDropdown('services'); }}
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === 'services'}
+                    >
                         <span>Services</span>
                         <ul className="dropdown">
                             <li><Link to="/services/blending">Blending</Link></li>

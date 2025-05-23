@@ -1,0 +1,23 @@
+.waxes-page {
+  padding: 2rem;
+}
+
+.wax-hero {
+  text-align: center;
+  background: #f5f5f5;
+  padding: 2rem;
+}
+
+.wax-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.wax-card {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}

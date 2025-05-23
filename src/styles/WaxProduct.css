@@ -1,0 +1,17 @@
+.wax-product-page {
+  padding: 2rem;
+}
+.product-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.specs {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+}

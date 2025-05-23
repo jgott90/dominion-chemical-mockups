@@ -1,0 +1,41 @@
+.wax-emulsions-page {
+    padding: 2rem;
+    text-align: center;
+}
+
+.emulsion-hero {
+    background-color: #f4f4f4;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.cta-button:hover {
+    background-color: #002244;
+}
+
+.emulsion-types {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.emulsion-card {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 1.5rem;
+    width: 280px;
+    border-radius: 8px;
+    text-align: left;
+}

@@ -1,5 +1,6 @@
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
@@ -49,7 +50,13 @@
     display: inline-block;
 }
 
+/* Show dropdown on hover for desktop */
 .dropdown-parent:hover .dropdown {
+    display: block;
+}
+
+/* Show dropdown if .open class is present (for click/tap/keyboard support) */
+.dropdown-parent.open .dropdown {
     display: block;
 }
 
@@ -104,4 +111,28 @@
 
 .navbar-search button:hover {
     background-color: #1544c0;
+}
+
+/* Optional: Only enable hover dropdowns on devices that support hover */
+@media (hover: hover) {
+    .dropdown-parent:hover .dropdown {
+        display: block;
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .navbar-left {
+        margin-bottom: 1rem;
+    }
+
+    .navbar-links .nav-menu {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
 }

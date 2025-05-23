@@ -1,0 +1,30 @@
+[
+  {
+    "id": "paraffin",
+    "name": "Paraffin Wax",
+    "description": "A versatile wax used in packaging, candle making, and more.",
+    "meltingPoint": "48\u201366\u00b0C",
+    "oilContent": "< 1%"
+  },
+  {
+    "id": "fully-refined",
+    "name": "Fully Refined Paraffin Wax",
+    "description": "Highly purified wax for food-grade and medical applications.",
+    "meltingPoint": "60\u201366\u00b0C",
+    "oilContent": "< 0.5%"
+  },
+  {
+    "id": "semi-refined",
+    "name": "Semi-Refined Wax",
+    "description": "Ideal for industrial applications with moderate oil content.",
+    "meltingPoint": "50\u201360\u00b0C",
+    "oilContent": "1\u20132%"
+  },
+  {
+    "id": "microcrystalline",
+    "name": "Microcrystalline Wax",
+    "description": "Used in cosmetics, adhesives, and chewing gum for its flexibility and tackiness.",
+    "meltingPoint": "63\u201393\u00b0C",
+    "oilContent": "5\u201315%"
+  }
+]
