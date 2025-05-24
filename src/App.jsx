@@ -16,7 +16,7 @@ import Waxes from "./pages/products/Waxes";
 //import WaxProduct from "./pages/products/WaxProduct";
 //import WaxEmulsions from "./pages/products/WaxEmulsions";
 import IndustrialChemicals from "./pages/products/IndustrialChemicals";
-//import ChemicalsCategory from "./pages/products/ChemicalsCategory";
+import ChemicalsCategory from "./pages/products/ChemicalCategory";
 //import ChemicalProduct from "./pages/products/ChemicalProduct";
 import NotFound from "./pages/NotFound";
 import Offline from "./pages/Offline";
@@ -40,8 +40,8 @@ function App() {
           {/*<Route path="/products/waxes/:id" element={<WaxProduct />} />
           <Route path="/products/wax-emulsions" element={<WaxEmulsions />} /> */}
           <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
-          {/*<Route path="/products/industrial-chemicals/category" element={<ChemicalsCategory />} />
-          <Route path="/products/industrial-chemicals/:id" element={<ChemicalProduct />} /> */}
+          <Route path="/products/industrial-chemicals/:category" element={<ChemicalsCategory />} />
+          {/* <Route path="/products/industrial-chemicals/:id" element={<ChemicalProduct />} /> */}
           <Route path="/notfound" element={<NotFound />} />
           <Route path="/offline" element={<Offline />} />
         </Routes>

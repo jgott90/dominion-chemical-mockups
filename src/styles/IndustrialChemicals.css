@@ -1,94 +1,136 @@
 .chemicals-page-main {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem 2rem 1rem;
     max-width: 1200px;
     margin: auto;
     background: #fff;
 }
 
 .chemicals-title {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    color: #002d62;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(30, 86, 240, 0.04);
 }
 
 .chemicals-search {
     width: 100%;
     max-width: 400px;
-    padding: 0.7rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-bottom: 2rem;
-    font-size: 1rem;
+    padding: 0.75rem 1.2rem;
+    border: 1.5px solid #bcd1f9;
+    border-radius: 8px;
+    margin-bottom: 2.6rem;
+    font-size: 1.08rem;
+    background: #fafdff;
+    box-shadow: 0 2px 8px rgba(30, 86, 240, 0.04);
+    transition: border-color 0.2s;
+}
+
+.chemicals-search:focus {
+    border-color: #1e56f0;
+    outline: none;
 }
 
 .chemicals-categories {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 2.2rem 2.5rem;
+    justify-content: flex-start;
     margin-bottom: 2.5rem;
 }
 
-.chemicals-category-card {
-    flex: 1 1 300px;
-    background: #fafbfc;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    padding: 1rem;
-    min-width: 260px;
-    max-width: 340px;
+.chemicals-category-card,
+.chemicals-category-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 240px;
+    min-width: 240px;
+    max-width: 330px;
+    min-height: 120px;
+    background: linear-gradient(120deg, #fafdff 85%, #e6edfb 100%);
+    border: 1.5px solid #e3eefd;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(30, 86, 240, 0.07);
+    padding: 1.35rem 1.1rem 1.1rem 1.1rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    color: #1a2542;
+    position: relative;
+    transition:
+        box-shadow 0.18s,
+        border-color 0.18s,
+        transform 0.11s;
+    cursor: pointer;
+}
+
+.chemicals-category-link:hover,
+.chemicals-category-card:hover {
+    box-shadow: 0 8px 24px rgba(30, 86, 240, 0.18);
+    border-color: #1e56f0;
+    transform: translateY(-4px) scale(1.025);
+    background: linear-gradient(120deg, #e6edfb 80%, #e3f0fc 100%);
 }
 
 .chemicals-category-title {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    width: 100%;
-    text-align: left;
-    padding: 0.5rem 0;
-    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.5px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.chemicals-category-arrow {
-    margin-left: 1rem;
-    font-size: 1rem;
-}
-
-.chemicals-category-products {
-    margin-top: 0.5rem;
-    display: none;
-}
-
-.chemicals-category-products.open {
-    display: block;
-}
-
-.chemicals-category-products ul {
-    padding-left: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.chemicals-category-products li {
-    margin-bottom: 0.2rem;
-}
-
-.chemicals-learn-more-btn {
-    margin-top: 0.6rem;
-    padding: 0.4rem 1rem;
-    background: #1e56f0;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+.chemicals-category-count {
+    font-size: 1.02rem;
+    color: #3267b6;
     font-weight: 600;
-    cursor: pointer;
+    margin-top: 0.2rem;
+    margin-left: 2px;
 }
 
-.chemicals-learn-more-btn:hover {
-    background: #1544c0;
+.chemicals-category-link:after {
+    content: "→";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.45rem;
+    color: #98b5ea;
+    transition: color 0.18s;
+    pointer-events: none;
 }
 
+.chemicals-category-link:hover:after {
+    color: #1e56f0;
+}
+
+.chemicals-category-arrow,
+.chemicals-category-products,
+.chemicals-learn-more-btn {
+    display: none !important;
+    /* Not shown in new design */
+}
+
+/* Responsive grid for cards */
+@media (max-width: 900px) {
+    .chemicals-categories {
+        flex-direction: column;
+        gap: 1.3rem;
+        align-items: stretch;
+    }
+
+    .chemicals-category-card,
+    .chemicals-category-link {
+        max-width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Remove highlight CSS for list items (no longer needed in card layout) */
+
+/* Footer, buttons, etc. remain as before */
 .chemicals-actions {
     margin-top: 2rem;
     text-align: center;
@@ -119,16 +161,4 @@
     font-size: 0.95rem;
     margin-top: 2rem;
     color: #666;
-}
-
-@media (max-width: 900px) {
-    .chemicals-categories {
-        flex-direction: column;
-        gap: 1.2rem;
-    }
-
-    .chemicals-category-card {
-        max-width: 100%;
-        min-width: 0;
-    }
 }

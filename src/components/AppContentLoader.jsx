@@ -4,19 +4,19 @@ import { SearchContext } from "../context/SearchContext";
 import chemicals from "../data/industrialChemicals.json";
 import waxes from "../data/waxes.json";
 
-// Map category names to their route paths
+// Map category names to their route paths (with leading slash!)
 const CATEGORY_PATHS = {
-    "Acids": "/industrial-chemicals",
-    "Ammonia Compounds": "/industrial-chemicals",
-    "Antifreeze": "/industrial-chemicals",
-    "Caustics": "/industrial-chemicals",
-    "Phosphates": "/industrial-chemicals",
-    "Sodium Compounds": "/industrial-chemicals",
-    "Solvents": "/industrial-chemicals",
-    "Water Treatment Chemicals": "/industrial-chemicals",
-    "Miscellaneous": "/industrial-chemicals"
+    "Acids": "/products/industrial-chemicals/acids",
+    "Ammonia Compounds": "/products/industrial-chemicals/ammonia-compounds",
+    "Antifreeze": "/products/industrial-chemicals/antifreeze",
+    "Caustics": "/products/industrial-chemical/caustics",
+    "Phosphates": "/products/industrial-chemicals/phosphates",
+    "Sodium Compounds": "/products/industrial-chemicals/sodium-compounds",
+    "Solvents": "/products/industrial-chemicals/solvents",
+    "Water Treatment Chemicals": "/products/industrial-chemicals/water-treatment-chemicals",
+    "Miscellaneous": "/products/industrial-chemicals/miscellaneous"
     // add other chemical categories as needed
-    // "Waxes": "/waxes",
+    // "Waxes": "/products/waxes",
     // add other waxes categories as needed
 };
 

@@ -17,6 +17,7 @@ function SearchResults() {
                     {searchResults.map((item) => (
                         <li key={item.path || item.name} style={{ marginBottom: 16 }}>
                             {item.path ? (
+                                // Use 'to={item.path}' directly, since path includes the anchor (e.g. /industrial-chemicals#sodium-carbonate)
                                 <Link to={item.path} className="text-blue-600 hover:underline">
                                     {item.name}
                                 </Link>
