@@ -50,6 +50,8 @@ const Home = () => {
                         <h3>Customized Wax Formulation</h3>
                         <p>Optimize for variety and blending.</p>
                     </Link>
+
+
                     <Link to="/services/packaging" className="service-card">
                         <div className="service-icon">📦</div>
                         <h3>Blending & Packaging</h3>

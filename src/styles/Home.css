@@ -212,9 +212,10 @@
     }
 
     .product-card {
-        max-width: 90vw;
-        min-width: 0;
+        min-width: 220px;
+        max-width: 320px;
         height: 220px;
+
     }
 
     .hero-content h1,

@@ -1,0 +1,134 @@
+.chemicals-page-main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: auto;
+    background: #fff;
+}
+
+.chemicals-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.chemicals-search {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.chemicals-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.chemicals-category-card {
+    flex: 1 1 300px;
+    background: #fafbfc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 1rem;
+    min-width: 260px;
+    max-width: 340px;
+}
+
+.chemicals-category-title {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chemicals-category-arrow {
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+.chemicals-category-products {
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.chemicals-category-products.open {
+    display: block;
+}
+
+.chemicals-category-products ul {
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.chemicals-category-products li {
+    margin-bottom: 0.2rem;
+}
+
+.chemicals-learn-more-btn {
+    margin-top: 0.6rem;
+    padding: 0.4rem 1rem;
+    background: #1e56f0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.chemicals-learn-more-btn:hover {
+    background: #1544c0;
+}
+
+.chemicals-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.chemicals-contact-btn,
+.chemicals-quote-btn {
+    padding: 0.7rem 1.5rem;
+    background: #f0a500;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: 0 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.chemicals-contact-btn:hover,
+.chemicals-quote-btn:hover {
+    background: #d48806;
+}
+
+.chemicals-footer {
+    background: #f5f5f5;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .chemicals-categories {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .chemicals-category-card {
+        max-width: 100%;
+        min-width: 0;
+    }
+}

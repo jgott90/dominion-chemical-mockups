@@ -13,7 +13,7 @@ import SearchResults from "./pages/SearchResults"; // Already added
 import Waxes from "./pages/products/Waxes";
 import WaxProduct from "./pages/products/WaxProduct";
 import WaxEmulsions from "./pages/products/WaxEmulsions";
-//import IndustrialChemicals from "./pages/products/IndustrialChemicals";
+import IndustrialChemicals from "./pages/products/IndustrialChemicals";
 //import ChemicalsCategory from "./pages/products/ChemicalsCategory";
 //import ChemicalProduct from "./pages/products/ChemicalProduct";
 
@@ -33,9 +33,9 @@ function App() {
           <Route path="/products" element={<Navigate to="/products/waxes" replace />} />
           <Route path="/products/waxes" element={<Waxes />} />
           <Route path="/products/waxes/:id" element={<WaxProduct />} />
-          {/* <Route path="/products/wax-emulsions" element={<WaxEmulsions />} />
+          <Route path="/products/wax-emulsions" element={<WaxEmulsions />} />
           <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
-          <Route path="/products/industrial-chemicals/category" element={<ChemicalsCategory />} />
+          {/*<Route path="/products/industrial-chemicals/category" element={<ChemicalsCategory />} />
           <Route path="/products/industrial-chemicals/:id" element={<ChemicalProduct />} /> */}
         </Routes>
       </main>

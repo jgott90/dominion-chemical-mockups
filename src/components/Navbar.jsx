@@ -55,7 +55,7 @@ function Navbar() {
                     >
                         <span>Products</span>
                         <ul className="dropdown">
-                            <li><Link to="/products/industrial">Industrial Chemicals</Link></li>
+                            <li><Link to="/products/Industrial-Chemicals">Industrial Chemicals</Link></li>
                             <li><Link to="/products/waxes">Waxes</Link></li>
                             <li><Link to="/products/emulsions">Wax Emulsions</Link></li>
                         </ul>
@@ -73,7 +73,7 @@ function Navbar() {
                         <ul className="dropdown">
                             <li><Link to="/services/blending">Blending</Link></li>
                             <li><Link to="/services/packaging">Packaging</Link></li>
-                            <li><Link to="/services/def">DEF</Link></li>
+                            <li><Link to="/services/def">Diesel Exhaust Fluid</Link></li>
                         </ul>
                     </li>
 
