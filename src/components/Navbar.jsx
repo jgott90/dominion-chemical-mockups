@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { SearchContext } from "../context/SearchContext";
 import "../styles/Navbar.css";
 
 function Navbar() {
-    const [searchQuery, setSearchQuery] = useState("");
+    const [searchQueryLocal, setSearchQueryLocal] = useState("");
+    const { setSearchQuery } = useContext(SearchContext);
     const [openDropdown, setOpenDropdown] = useState(null);
-
     const navigate = useNavigate();
 
     const handleSearch = (e) => {
         e.preventDefault();
-        if (searchQuery.trim()) {
-            navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+        if (searchQueryLocal.trim()) {
+            setSearchQuery(searchQueryLocal.trim());
+            navigate(`/search?query=${encodeURIComponent(searchQueryLocal.trim())}`);
         }
     };
 
@@ -55,9 +57,9 @@ function Navbar() {
                     >
                         <span>Products</span>
                         <ul className="dropdown">
-                            <li><Link to="/products/Industrial-Chemicals">Industrial Chemicals</Link></li>
+                            <li><Link to="/products/industrial-chemicals">Industrial Chemicals</Link></li>
                             <li><Link to="/products/waxes">Waxes</Link></li>
-                            <li><Link to="/products/emulsions">Wax Emulsions</Link></li>
+                            <li><Link to="/products/wax-emulsions">Wax Emulsions</Link></li>
                         </ul>
                     </li>
 
@@ -85,8 +87,8 @@ function Navbar() {
                 <input
                     type="text"
                     placeholder="Search for chemicals..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    value={searchQueryLocal}
+                    onChange={(e) => setSearchQueryLocal(e.target.value)}
                 />
                 <button type="submit">Go</button>
             </form>
