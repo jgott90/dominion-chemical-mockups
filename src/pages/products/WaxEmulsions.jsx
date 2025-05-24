@@ -1,28 +1,48 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import industries from "../../data/waxEmulsionsIndustries.json";
+import waxEmulsionImg from "/images/wax-emulsions.jpg";
 import "../../styles/WaxEmulsions.css";
 
 export default function WaxEmulsions() {
     return (
-        <div className="wax-emulsions-page">
-            <section className="emulsion-hero">
-                <h1>Advanced Wax Emulsions for Industrial Applications</h1>
-                <p>Durable, reliable, and engineered for performance.</p>
-                <button className="cta-button">Request a Quote</button>
-            </section>
-            <section className="emulsion-types">
-                <div className="emulsion-card">
-                    <h3>Paraffin Emulsions</h3>
-                    <p>Formulated for coatings, paper, and textiles.</p>
+        <>
+            <a href="#main-content" className="skip-link">Skip to main content</a>
+            <main className="waxemulsions-main" id="main-content">
+                <nav aria-label="Breadcrumb" className="waxemulsions-breadcrumbs">
+                    <ol>
+                        <li><Link to="/">Home</Link> <span aria-hidden="true"> &gt; </span></li>
+                        <li><Link to="/products">Products</Link> <span aria-hidden="true"> &gt; </span></li>
+                        <li aria-current="page">Wax Emulsions</li>
+                    </ol>
+                </nav>
+                <h1 className="waxemulsions-title" tabIndex="-1">Wax Emulsions</h1>
+                <p className="waxemulsions-desc">
+                    Dominion Chemical Company has developed product lines centered around several types of wax emulsions. Within these emulsions, there are many formulas designed specifically for various types of industries and individual users. Since 1973, Dominion has developed an extensive knowledge of emulsions and strives for excellence in their achievements.
+                </p>
+
+                <section className="waxemulsions-content">
+                    <div className="waxemulsions-img-col">
+                        <img
+                            src={waxEmulsionImg}
+                            alt="Waxed board samples"
+                            className="waxemulsions-img"
+                        />
+                    </div>
+                    <div className="waxemulsions-industries-col">
+                        <h2 className="section-title">Industries Served</h2>
+                        <ul className="waxemulsions-industries-list">
+                            {industries.map(industry => (
+                                <li key={industry}>{industry}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+
+                <div className="waxemulsions-custom-blends" role="note">
+                    Dominion Chemical also custom blends waxes for specific applications.
                 </div>
-                <div className="emulsion-card">
-                    <h3>Microcrystalline Emulsions</h3>
-                    <p>Ideal for flexibility and gloss in industrial use.</p>
-                </div>
-                <div className="emulsion-card">
-                    <h3>Synthetic Emulsions</h3>
-                    <p>Engineered alternatives for specialty applications.</p>
-                </div>
-            </section>
-        </div>
+            </main>
+        </>
     );
 }

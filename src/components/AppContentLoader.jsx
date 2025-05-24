@@ -2,22 +2,19 @@ import { useContext, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
 
 import chemicals from "../data/industrialChemicals.json";
-import waxes from "../data/waxes.json";
+//import waxes from "../data/waxes.json";
 
 // Map category names to their route paths (with leading slash!)
 const CATEGORY_PATHS = {
     "Acids": "/products/industrial-chemicals/acids",
     "Ammonia Compounds": "/products/industrial-chemicals/ammonia-compounds",
     "Antifreeze": "/products/industrial-chemicals/antifreeze",
-    "Caustics": "/products/industrial-chemical/caustics",
+    "Caustics": "/products/industrial-chemicals/caustics",
     "Phosphates": "/products/industrial-chemicals/phosphates",
     "Sodium Compounds": "/products/industrial-chemicals/sodium-compounds",
     "Solvents": "/products/industrial-chemicals/solvents",
     "Water Treatment Chemicals": "/products/industrial-chemicals/water-treatment-chemicals",
     "Miscellaneous": "/products/industrial-chemicals/miscellaneous"
-    // add other chemical categories as needed
-    // "Waxes": "/products/waxes",
-    // add other waxes categories as needed
 };
 
 function slugify(str) {
@@ -48,7 +45,7 @@ function AppContentLoader() {
         }
 
         chemicals?.forEach(registerProductsFromCategory);
-        waxes?.forEach(registerProductsFromCategory);
+        //waxes?.forEach(registerProductsFromCategory);
         // Add more datasets as needed
     }, [registerContent]);
 

@@ -73,8 +73,8 @@ function Navbar() {
                     >
                         <span>Services</span>
                         <ul className="dropdown">
-                            <li><Link to="/services/blending">Blending</Link></li>
-                            <li><Link to="/services/packaging">Packaging</Link></li>
+                            <li><Link to="/services/custom-wax-formulation">Customized Wax Formulation</Link></li>
+                            <li><Link to="/services/blending-packaging">Blending & Packaging</Link></li>
                             <li><Link to="/services/def">Diesel Exhaust Fluid</Link></li>
                         </ul>
                     </li>

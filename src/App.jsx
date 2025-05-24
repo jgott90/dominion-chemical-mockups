@@ -13,8 +13,7 @@ import { SearchContext, SearchProvider } from "./context/SearchContext"; // Alre
 import AppContentLoader from "./components/AppContentLoader";
 import AutoIndexer from "./components/AutoIndexer";
 import Waxes from "./pages/products/Waxes";
-//import WaxProduct from "./pages/products/WaxProduct";
-//import WaxEmulsions from "./pages/products/WaxEmulsions";
+import WaxEmulsions from "./pages/products/WaxEmulsions";
 import IndustrialChemicals from "./pages/products/IndustrialChemicals";
 import ChemicalsCategory from "./pages/products/ChemicalCategory";
 //import ChemicalProduct from "./pages/products/ChemicalProduct";
@@ -32,16 +31,18 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/services" element={<Services />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/products" element={<Navigate to="/products/waxes" replace />} />
           <Route path="/products/waxes" element={<Waxes />} />
-          {/*<Route path="/products/waxes/:id" element={<WaxProduct />} />
-          <Route path="/products/wax-emulsions" element={<WaxEmulsions />} /> */}
+          <Route path="/products/wax-emulsions" element={<WaxEmulsions />} />
           <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
           <Route path="/products/industrial-chemicals/:category" element={<ChemicalsCategory />} />
           {/* <Route path="/products/industrial-chemicals/:id" element={<ChemicalProduct />} /> */}
+          <Route path="/services" element={<Navigate to="/services/blending-packaging" replace />} />
+          {/* <Route path="/services/custom-wax-formulation" element={<Services />} /> */}
+          {/* <Route path="/services/blending-packaging" element={<Services />} /> */}
+          {/* <Route path="/services/def" element={<Services />} /> */}
           <Route path="/notfound" element={<NotFound />} />
           <Route path="/offline" element={<Offline />} />
         </Routes>
