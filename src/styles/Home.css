@@ -1,8 +1,23 @@
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .home {
-    background: #f9fafb;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: #f9fafb;
+}
+
+.main-content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 .hero {
@@ -133,9 +148,18 @@
     font-weight: 700;
 }
 
+.services-bg {
+    background: #e7efff;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1 0 auto;
+}
+
 .services-section {
     padding: 42px 4vw 24px 4vw;
-    background: #e7efff;
+    background: transparent;
+    /* color inherited from .services-bg */
 }
 
 .services-heading {
@@ -194,6 +218,12 @@
     margin: 0;
     font-size: 1em;
     color: #3b4252;
+}
+
+/* The spacer grows to fill space so .services-bg color continues to footer */
+.services-spacer {
+    flex: 1 1 auto;
+    min-height: 0;
 }
 
 @media (max-width: 900px) {

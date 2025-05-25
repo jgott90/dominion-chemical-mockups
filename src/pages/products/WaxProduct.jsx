@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import waxes from "../../data/waxes.json";
+import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
 import "../../styles/WaxProduct.css";
 
 export default function WaxProduct() {

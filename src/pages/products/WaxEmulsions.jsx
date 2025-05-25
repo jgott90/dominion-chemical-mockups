@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import industries from "../../data/waxEmulsionsIndustries.json";
 import waxEmulsionImg from "/images/wax-emulsions.jpg";
+import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
 import "../../styles/WaxEmulsions.css";
 
 export default function WaxEmulsions() {
