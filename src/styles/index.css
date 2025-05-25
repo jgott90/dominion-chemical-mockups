@@ -43,3 +43,99 @@ body {
   flex-direction: column;
   min-height: 0;
 }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+  background: #222;
+  color: #fff;
+  padding: 8px 16px;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  font-size: 1.1rem;
+  border-radius: 4px;
+}
+
+/* NotFound & Offline page styles */
+.notfound-container,
+.offline-container {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: #f6f7fb;
+}
+
+.notfound-content,
+.offline-content {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 24px 0 rgba(13, 32, 66, 0.08);
+}
+
+.notfound-content h1,
+.offline-content h1 {
+  font-size: 2rem;
+  color: #0d2042;
+  margin-bottom: 1rem;
+}
+
+.notfound-message,
+.offline-message {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.notfound-home-link,
+.offline-retry-btn {
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #0d2042;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.notfound-home-link:focus,
+.notfound-home-link:hover,
+.offline-retry-btn:focus,
+.offline-retry-btn:hover {
+  background: #4260a1;
+  outline: 2px solid #0d2042;
+  outline-offset: 2px;
+}
+
+/* Responsive: Mobile-friendly adjustments */
+@media (max-width: 600px) {
+
+  .notfound-content,
+  .offline-content {
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    font-size: 0.97rem;
+  }
+
+  .notfound-content h1,
+  .offline-content h1 {
+    font-size: 1.5rem;
+  }
+}
