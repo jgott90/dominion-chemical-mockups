@@ -1,0 +1,151 @@
+.def-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+}
+
+.def-features-card,
+.def-packaging-card {
+    background: #fdf7ea;
+    border-radius: 14px;
+    padding: 28px 26px 20px 26px;
+    box-shadow: 0 2px 14px rgba(242, 197, 114, 0.08);
+    color: #2d2e2e;
+    border-left: 5px solid #f2c572;
+    flex: 1 1 280px;
+    min-width: 240px;
+    max-width: 410px;
+}
+
+.def-features-card h2,
+.def-packaging-card h2 {
+    color: #d48806;
+    font-size: 1.22em;
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.def-feature-list,
+.def-packaging-list {
+    margin: 0 0 0 1em;
+    padding: 0;
+    list-style: disc inside;
+    font-size: 1.08em;
+    line-height: 1.7;
+}
+
+.def-info-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0 12px 0;
+}
+
+.def-info-block {
+    background: #e9f5fc;
+    border-radius: 10px;
+    padding: 17px 18px;
+    color: #205081;
+    font-size: 1em;
+    flex: 1 1 260px;
+    min-width: 220px;
+    max-width: 340px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 8px rgba(32, 80, 129, 0.06);
+}
+
+.def-table-section {
+    margin: 28px 0 14px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.def-table-heading {
+    font-size: 1.18em;
+    color: #205081;
+    margin-bottom: 10px;
+}
+
+.def-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    max-width: 540px;
+    margin-bottom: 13px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 12px rgba(32, 80, 129, 0.07);
+}
+
+.def-consumption-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    background: #e9fafd;
+}
+
+.def-consumption-table th,
+.def-consumption-table td {
+    padding: 10px 14px;
+    border: 1px solid #b0ced6;
+    text-align: center;
+}
+
+.def-consumption-table th {
+    background: #d6f1f8;
+    color: #205081;
+    font-weight: 700;
+}
+
+.def-sds-link {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+
+.def-sds-link a {
+    color: #205081;
+    font-weight: 600;
+    text-decoration: underline;
+    font-size: 1.08em;
+}
+
+@media (max-width: 900px) {
+
+    .def-main,
+    .def-info-section {
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+    }
+
+    .def-features-card,
+    .def-packaging-card,
+    .def-info-block {
+        max-width: 96vw;
+        min-width: 0;
+        padding: 16px 10px;
+    }
+
+    .def-table-wrapper {
+        max-width: 99vw;
+    }
+
+    .def-table-section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Accessible hidden class for table caption */
+.sr-only {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

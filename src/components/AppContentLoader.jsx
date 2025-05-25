@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
 
 import chemicals from "../data/industrialChemicals.json";
-//import waxes from "../data/waxes.json";
+import waxes from "../data/waxes.json";
 
 // Map category names to their route paths (with leading slash!)
 const CATEGORY_PATHS = {
@@ -28,6 +28,7 @@ function AppContentLoader() {
     const { registerContent } = useContext(SearchContext);
 
     useEffect(() => {
+        // Register chemicals (by category)
         function registerProductsFromCategory(category) {
             if (Array.isArray(category.products)) {
                 const categoryPath = CATEGORY_PATHS[category.name] || "/";
@@ -36,7 +37,7 @@ function AppContentLoader() {
                         name: productName,
                         category: category.name,
                         path: `${categoryPath}#${slugify(productName)}`,
-                        anchor: slugify(productName), // optional, for clarity
+                        anchor: slugify(productName),
                     });
                 });
             } else {
@@ -44,8 +45,34 @@ function AppContentLoader() {
             }
         }
 
-        chemicals?.forEach(registerProductsFromCategory);
-        //waxes?.forEach(registerProductsFromCategory);
+        if (Array.isArray(chemicals)) {
+            chemicals.forEach(registerProductsFromCategory);
+        }
+
+        // Register waxes (individual types and applications)
+        if (waxes && Array.isArray(waxes.types)) {
+            waxes.types.forEach(type => {
+                registerContent({
+                    name: type.name,
+                    category: "Waxes",
+                    path: `/products/waxes#${slugify(type.name)}`,
+                    anchor: slugify(type.name),
+                });
+            });
+        }
+
+        // Register waxes applications (optional: only if you want to make them searchable)
+        if (waxes && Array.isArray(waxes.applications)) {
+            waxes.applications.forEach(app => {
+                registerContent({
+                    name: app,
+                    category: "Waxes Applications",
+                    path: `/products/waxes#applications`,
+                    anchor: "applications",
+                });
+            });
+        }
+
         // Add more datasets as needed
     }, [registerContent]);
 
