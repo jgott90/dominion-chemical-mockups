@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/CustomWaxFormulation.css";
 import "../styles/About.css";
 
-function AboutUs() {
+function About() {
     return (
         <div className="custom-wax-bg">
             {/* Hero / Lead */}
@@ -80,4 +80,4 @@ function AboutUs() {
     );
 }
 
-export default AboutUs;
+export default About;
