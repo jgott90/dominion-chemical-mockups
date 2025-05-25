@@ -26,13 +26,20 @@
     align-items: flex-start;
 }
 
-.contactus-info {
+.contactus-info,
+.contactus-form-container {
     flex: 1 1 330px;
     background: #fff;
     border-radius: 1.1rem;
     box-shadow: 0 2px 16px rgba(30, 41, 59, 0.12);
     padding: 2rem 2rem 1.5rem 2rem;
     margin-bottom: 1.5rem;
+    min-width: 0;
+    max-width: 500px;
+    width: 100%;
+}
+
+.contactus-info {
     color: #205081;
     font-size: 1.05rem;
 }
@@ -123,9 +130,11 @@
 }
 
 .contactus-submit:hover,
-.contactus-submit:focus {
+.contactus-submit:focus,
+.contactus-submit:focus-visible {
     background: #1d3557;
-    outline: 2px solid #fff;
+    outline: 2px solid #ffb703;
+    outline-offset: 2px;
 }
 
 .contactus-success {
@@ -148,6 +157,7 @@
     font-size: 1em;
 }
 
+/* Accessibility: larger tap targets and font scaling for small screens */
 @media (max-width: 900px) {
     .contactus-content-grid {
         flex-direction: column;
@@ -158,4 +168,54 @@
     .contactus-form-container {
         padding: 1.3rem 1rem;
     }
+}
+
+@media (max-width: 600px) {
+
+    .contactus-info,
+    .contactus-form-container {
+        padding: 0.9rem 0.5rem;
+        font-size: 0.98em;
+    }
+
+    #contactus-heading {
+        font-size: 1.3rem;
+    }
+
+    .contactus-hero {
+        padding: 1.2rem 0 1rem 0;
+    }
+
+    .contactus-success,
+    .contactus-error {
+        font-size: 1em;
+        padding: 0.7rem 0.5rem;
+    }
+
+    .contactus-submit {
+        padding: 1rem 1.2rem;
+        font-size: 1em;
+    }
+}
+
+.contactus-form input,
+.contactus-form textarea,
+.contactus-form select {
+    min-height: 44px;
+    /* ensures accessible tap targets on mobile */
+}
+
+.contactus-form label,
+.contactus-form input,
+.contactus-form textarea,
+.contactus-form select,
+.contactus-submit {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.contactus-form input[type="text"],
+.contactus-form input[type="email"] {
+    /* Helps with iOS zoom on focus */
+    font-size: 16px;
 }

@@ -15,6 +15,11 @@ import Waxes from "./pages/products/Waxes";
 import WaxEmulsions from "./pages/products/WaxEmulsions";
 import IndustrialChemicals from "./pages/products/IndustrialChemicals";
 import ChemicalsCategory from "./pages/products/ChemicalCategory";
+
+import BlendingPackaging from "./pages/services/BlendingPackaging";
+import CustomWaxFormulation from "./pages/services/CustomWaxFormulation";
+import DieselExhaustFluid from "./pages/services/DieselExhaustFluid";
+
 //import ChemicalProduct from "./pages/products/ChemicalProduct";
 import NotFound from "./pages/NotFound";
 import Offline from "./pages/Offline";
@@ -32,7 +37,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/services" element={<Services />} /> */}
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/products" element={<Navigate to="/products/waxes" replace />} />
@@ -42,6 +47,11 @@ function App() {
           <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
           <Route path="/products/industrial-chemicals/:category" element={<ChemicalsCategory />} />
           {/* <Route path="/products/industrial-chemicals/:id" element={<ChemicalProduct />} /> */}
+
+          <Route path="/services/custom-wax-formulation" element={<CustomWaxFormulation />} />
+          <Route path="/services/blending-packaging" element={<BlendingPackaging />} />
+          <Route path="/services/diesel-exhaust-fluid" element={<DieselExhaustFluid />} />
+
           <Route path="/notfound" element={<NotFound />} />
           <Route path="/offline" element={<Offline />} />
         </Routes>

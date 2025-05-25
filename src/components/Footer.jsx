@@ -3,16 +3,22 @@ import { Link } from "react-router-dom";
 import "../styles/Footer.css";
 
 const Footer = () => (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo">
         <div className="footer-content">
-            <div>
-                <h3>Contact Dominion Chemical Today</h3>
+            <div className="footer-cta" tabIndex={-1} aria-labelledby="footer-heading">
+                <h2 id="footer-heading" className="footer-heading">
+                    Contact Dominion Chemical Today
+                </h2>
                 <p>
                     If you need a custom blend wax or want to purchase white label wax products, Dominion Chemical has a solution for you.<br />
                     Get started today.
                 </p>
             </div>
-            <Link to="/contact" className="footer-contact-btn">
+            <Link
+                to="/contact"
+                className="footer-contact-btn"
+                aria-label="Contact us online"
+            >
                 CONTACT US ONLINE
             </Link>
         </div>
