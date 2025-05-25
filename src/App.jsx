@@ -25,8 +25,8 @@ import CustomWaxFormulation from "./pages/services/CustomWaxFormulation";
 import BlendingPackaging from "./pages/services/BlendingPackaging";
 import DieselExhaustFluid from "./pages/services/DieselExhaustFluid";
 
-import NotFound from "./pages/NotFound";
-import Offline from "./pages/Offline";
+//import NotFound from "./pages/NotFound";
+//import Offline from "./pages/Offline";
 
 function App() {
   return (
@@ -51,7 +51,7 @@ function App() {
           <Route path="/services/custom-wax-formulation" element={<CustomWaxFormulation />} />
           <Route path="/services/blending-packaging" element={<BlendingPackaging />} />
           <Route path="/services/diesel-exhaust-fluid" element={<DieselExhaustFluid />} />
-          <Route path="/offline" element={<Offline />} />
+          {/*  <Route path="/offline" element={<Offline />} /> */}
         </Routes>
       </main>
       <Footer />
