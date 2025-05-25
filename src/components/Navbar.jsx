@@ -37,7 +37,7 @@ function Navbar() {
         <header className="navbar">
             <div className="navbar-left">
                 <Link to="/" className="logo">
-                    <img src="/images/logo.jpg" alt="Dominion Chemical Logo" />
+                    <img src="/projects/dominion-chemical/images/logo.jpg" alt="Dominion Chemical Logo" />
                     <span>Dominion Chemical</span>
                 </Link>
             </div>

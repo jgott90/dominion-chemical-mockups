@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import industries from "../../data/waxEmulsionsIndustries.json";
-import waxEmulsionImg from "/images/wax-emulsions.jpg";
+//import waxEmulsionImg from "/projects/dominion-chemical/images/wax-emulsions.jpg";
 import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
 import "../../styles/WaxEmulsions.css";
 
@@ -25,10 +25,12 @@ export default function WaxEmulsions() {
                 <section className="waxemulsions-content">
                     <div className="waxemulsions-img-col">
                         <img
-                            src={waxEmulsionImg}
+                            src="/projects/dominion-chemical/images/wax-emulsions.jpg"
                             alt="Waxed board samples"
                             className="waxemulsions-img"
                         />
+
+
                     </div>
                     <div className="waxemulsions-industries-col">
                         <h2 className="section-title">Industries Served</h2>

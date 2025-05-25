@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/CustomWaxFormulation.css"; // Reuse style for consistency!
-import blendingImg from "/images/greer-slabber.jpg";
-import slabberImg from "/images/wax-slabs.jpg";
+//import blendingImg from "/projects/dominion-chemical/images/greer-slabber.jpg";
+//import slabberImg from "/projects/dominion-chemical/images/wax-slabs.jpg";
 
 function BlendingPackaging() {
     return (
@@ -15,7 +15,7 @@ function BlendingPackaging() {
 
             <section className="custom-wax-main">
                 <div className="custom-wax-image-col">
-                    <img src={blendingImg} alt="Blending and Packaging Line" className="custom-wax-photo" />
+                    <img src="/projects/dominion-chemical/images/greer-slabber.jpg" alt="Blending and Packaging Line" className="custom-wax-photo" />
                 </div>
                 <div className="custom-wax-info-col">
                     <div className="custom-wax-info-card">
@@ -37,7 +37,7 @@ function BlendingPackaging() {
                     </div>
                 </div>
                 <div className="custom-wax-image-col">
-                    <img src={slabberImg} alt="Wax Slabber Process" className="custom-wax-photo" />
+                    <img src="/projects/dominion-chemical/images/wax-slabs.jpg" alt="Wax Slabber Process" className="custom-wax-photo" />
                 </div>
             </section>
 

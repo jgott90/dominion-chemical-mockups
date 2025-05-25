@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../../styles/CustomWaxFormulation.css";
-import plantImg from "/images/custom-formulation-tank.jpg";
-import processDiagram from "/images/custom-wax-formulations-flowchart.jpg";
+//import plantImg from "/projects/dominion-chemical/images/custom-formulation-tank.jpg";
+//import processDiagram from "/projects/dominion-chemical/images/custom-wax-formulations-flowchart.jpg";
 
 function CustomWaxFormulation() {
     const [enlarge, setEnlarge] = useState(false);
@@ -35,7 +35,7 @@ function CustomWaxFormulation() {
 
             <section className="custom-wax-main">
                 <div className="custom-wax-image-col">
-                    <img src={plantImg} alt="Plant Equipment" className="custom-wax-photo" />
+                    <img src="/projects/dominion-chemical/images/custom-formulation-tank.jpg" alt="Plant Equipment" className="custom-wax-photo" />
                 </div>
                 <div className="custom-wax-info-col">
                     <div className="custom-wax-info-card">
@@ -56,7 +56,7 @@ function CustomWaxFormulation() {
                 </div>
                 <div className="custom-wax-image-col">
                     <img
-                        src={processDiagram}
+                        src="/projects/dominion-chemical/images/custom-wax-formulations-flowchart.jpg"
                         alt="Process Flow Diagram"
                         className="custom-wax-diagram"
                         onClick={() => setEnlarge(true)}

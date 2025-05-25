@@ -8,7 +8,7 @@ import "./styles/index.css"; // Ensure your global CSS is imported here
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/projects/dominion-chemical/">
       <HeadProvider>
         <SearchProvider>
           <App />
