@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../../styles/CustomWaxFormulation.css";
-//import plantImg from "/projects/dominion-chemical/images/custom-formulation-tank.jpg";
-//import processDiagram from "/projects/dominion-chemical/images/custom-wax-formulations-flowchart.jpg";
 
 function CustomWaxFormulation() {
     const [enlarge, setEnlarge] = useState(false);
     const modalRef = useRef(null);
+    const closeBtnRef = useRef(null);
 
-    // Optional: Escape key closes modal
+    // ESC closes modal
     useEffect(() => {
         if (!enlarge) return;
         const handler = (e) => {
@@ -17,10 +16,10 @@ function CustomWaxFormulation() {
         return () => window.removeEventListener("keydown", handler);
     }, [enlarge]);
 
-    // Focus trap for accessibility
+    // Focus trap and accessibility
     useEffect(() => {
-        if (enlarge && modalRef.current) {
-            modalRef.current.focus();
+        if (enlarge && closeBtnRef.current) {
+            closeBtnRef.current.focus();
         }
     }, [enlarge]);
 
@@ -92,8 +91,14 @@ function CustomWaxFormulation() {
                     role="dialog"
                     ref={modalRef}
                 >
+                    <button
+                        className="custom-wax-modal-close"
+                        onClick={e => { e.stopPropagation(); setEnlarge(false); }}
+                        ref={closeBtnRef}
+                        aria-label="Close enlarged process flow diagram"
+                    >&times;</button>
                     <img
-                        src={processDiagram}
+                        src="/projects/dominion-chemical/images/custom-wax-formulations-flowchart.jpg"
                         alt="Enlarged Process Flow Diagram"
                         className="custom-wax-modal-img"
                         onClick={e => e.stopPropagation()}

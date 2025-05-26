@@ -1,61 +1,40 @@
-:root {
-    --primary-blue: #1e56f0;
-    --hover-blue: #1544c0;
-    --focus-outline: #003399;
-    --card-bg: #fafdff;
-    --card-bg-hover: #e6edfb;
-    --card-border: #e3eefd;
-    --card-border-hover: #1e56f0;
-    --text-main: #002d62;
-    --desc-main: #31568d;
-    --text-shadow: 0 2px 8px rgba(30, 86, 240, 0.04);
-    --min-touch-size: 44px;
-}
-
-/* Accessibility: visually hidden label helper */
-.sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+/* General page layout */
+.chemicals-page-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 4vw 36px 4vw;
+    background: #f9fafb;
+    min-height: 100vh;
 }
 
 .skip-link {
     position: absolute;
-    left: 8px;
-    top: 8px;
-    background: #fff;
-    color: #000;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 100;
+    background: #2563eb;
+    color: #fff;
     padding: 8px 16px;
-    z-index: 1000;
     border-radius: 4px;
-    border: 2px solid var(--primary-blue);
-    font-weight: 700;
-    font-size: 1rem;
-    transform: translateY(-150%);
-    transition: transform 0.2s;
+    font-weight: bold;
 }
 
 .skip-link:focus {
-    transform: translateY(0%);
-    outline: 3px solid var(--primary-blue);
-}
-
-.chemicals-page-main {
-    padding: 2.5rem 1rem 2rem 1rem;
-    max-width: 1200px;
-    margin: auto;
-    background: #fff;
+    left: 20px;
+    top: 20px;
+    width: auto;
+    height: auto;
+    outline: 2px solid #223;
+    transition: left 0.2s, top 0.2s;
 }
 
 .chemicals-breadcrumbs {
-    font-size: 0.98rem;
-    margin-bottom: 1.4rem;
-    color: #6d7b97;
+    margin-bottom: 18px;
+    font-size: 1em;
+    color: #2563eb;
 }
 
 .chemicals-breadcrumbs ol {
@@ -64,6 +43,7 @@
     margin: 0;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .chemicals-breadcrumbs li {
@@ -71,236 +51,185 @@
     align-items: center;
 }
 
-.chemicals-breadcrumbs a {
-    color: var(--primary-blue);
-    text-decoration: none;
-    transition: color 0.12s;
-}
-
-.chemicals-breadcrumbs a:focus,
-.chemicals-breadcrumbs a:hover {
-    color: var(--hover-blue);
-    outline: 2px solid var(--primary-blue);
-    outline-offset: 2px;
-}
-
 .chemicals-title {
-    font-size: 2.4rem;
-    margin-bottom: 1.1rem;
+    font-size: 2em;
     font-weight: 800;
-    color: var(--text-main);
-    letter-spacing: 1px;
-    text-shadow: var(--text-shadow);
+    color: #223;
+    margin-bottom: 8px;
     outline: none;
 }
 
 .chemicals-desc {
-    font-size: 1.15rem;
-    color: var(--desc-main);
-    margin-bottom: 1.7rem;
-    max-width: 650px;
+    font-size: 1.08em;
+    color: #3b4252;
+    margin-bottom: 26px;
 }
 
 .chemicals-search {
     width: 100%;
     max-width: 400px;
-    padding: 0.75rem 1.2rem;
-    border: 1.5px solid #bcd1f9;
-    border-radius: 8px;
-    margin-bottom: 2.6rem;
-    font-size: 1.08rem;
-    background: #fafdff;
-    box-shadow: 0 2px 8px rgba(30, 86, 240, 0.04);
-    transition: border-color 0.2s;
+    font-size: 1.08em;
+    padding: 10px 14px;
+    border: 1.5px solid #bcd4f6;
+    border-radius: 7px;
+    margin-bottom: 30px;
+    background: #fff;
+    color: #222;
+    transition: border 0.18s;
+    box-sizing: border-box;
 }
 
 .chemicals-search:focus {
-    border-color: var(--primary-blue);
-    outline: 2px solid var(--focus-outline);
-    outline-offset: 2px;
+    border-color: #2563eb;
+    outline: 2px solid #2563eb;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Categories/Results Grid */
 .chemicals-categories {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.2rem 2.5rem;
+    gap: 28px;
     justify-content: flex-start;
-    margin-bottom: 2.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.chemicals-category-block {
+    flex: 1 1 260px;
+    max-width: 350px;
+    min-width: 230px;
+    background: none;
+    margin-bottom: 1.2em;
+    /* Only keep this for desktop/tablet */
 }
 
 .chemicals-category-link {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1 1 240px;
-    min-width: 240px;
-    max-width: 330px;
-    min-height: 120px;
-    background: linear-gradient(120deg, var(--card-bg) 85%, var(--card-bg-hover) 100%);
-    border: 1.5px solid var(--card-border);
-    border-radius: 14px;
-    box-shadow: 0 2px 12px rgba(30, 86, 240, 0.07);
-    padding: 1.35rem 1.1rem 1.1rem 1.1rem;
-    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 14px rgba(37, 99, 235, 0.09);
+    padding: 22px 18px 18px 18px;
     text-decoration: none;
-    color: #1a2542;
+    color: #223;
+    transition: box-shadow 0.14s, outline 0.14s, transform 0.13s;
+    font-weight: 600;
+    min-height: 110px;
     position: relative;
-    transition:
-        box-shadow 0.18s,
-        border-color 0.18s,
-        transform 0.11s,
-        background 0.18s;
-    cursor: pointer;
     outline: none;
-    min-height: var(--min-touch-size);
-    min-width: var(--min-touch-size);
 }
 
 .chemicals-category-link:focus,
-.chemicals-category-link:focus-visible {
-    outline: 3px solid var(--focus-outline);
-    outline-offset: 2px;
-    border-color: var(--focus-outline);
-    background: #fff;
-}
-
+.chemicals-category-link:focus-visible,
 .chemicals-category-link:hover {
-    box-shadow: 0 8px 24px rgba(30, 86, 240, 0.18);
-    border-color: var(--card-border-hover);
-    transform: translateY(-4px) scale(1.025);
-    background: linear-gradient(120deg, var(--card-bg-hover) 80%, #e3f0fc 100%);
+    box-shadow: 0 5px 24px rgba(37, 99, 235, 0.19);
+    outline: 2px solid #2563eb;
+    z-index: 2;
+    color: #1d3557;
+    text-decoration: underline;
+    transform: translateY(-2px) scale(1.035);
 }
 
 .chemicals-category-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.65rem;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
+    font-size: 1.19em;
+    font-weight: 800;
+    margin-bottom: 0.18em;
 }
 
 .chemicals-category-count {
-    font-size: 1.02rem;
-    color: #3267b6;
-    font-weight: 600;
-    margin-top: 0.2rem;
-    margin-left: 2px;
+    font-size: 0.96em;
+    color: #2563eb;
+    margin-bottom: 0.16em;
 }
 
 .chemicals-category-shortdesc {
-    font-size: 0.98rem;
-    color: #576f96;
-    margin-top: 0.4rem;
-    line-height: 1.4;
+    font-size: 0.93em;
+    color: #3b4252;
+    margin-top: 3px;
 }
 
-.chemicals-category-link:after {
-    content: "→";
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.45rem;
-    color: #98b5ea;
-    transition: color 0.18s;
-    pointer-events: none;
+.chemicals-matching-list {
+    margin: 0.6em 0 0.7em 1.5em;
+    padding: 0;
+    list-style: disc inside;
+    font-size: 1em;
+    color: #205081;
 }
 
-.chemicals-category-link:hover:after,
-.chemicals-category-link:focus:after {
-    color: var(--primary-blue);
+.chemicals-matching-chem {
+    font-size: 0.96em;
 }
 
 .chemicals-none {
-    font-size: 1.1rem;
-    color: #7d8ca3;
-    padding: 2rem 0;
+    font-size: 1.14em;
+    color: #b91c1c;
+    padding: 18px 0 10px 0;
 }
 
+/* Tablet and below */
 @media (max-width: 900px) {
     .chemicals-categories {
-        flex-direction: column;
-        gap: 1.3rem;
-        align-items: stretch;
+        gap: 18px;
+        justify-content: center;
     }
 
-    .chemicals-category-link {
-        max-width: 100%;
-        min-width: 0;
-        min-height: var(--min-touch-size);
+    .chemicals-category-block {
+        min-width: 170px;
+        max-width: 99vw;
     }
 }
 
-@media (max-width: 600px) {
+/* Mobile: Compact and accessible spacing */
+@media (max-width: 650px) {
     .chemicals-page-main {
-        padding: 1.2rem 0.2rem 1rem 0.2rem;
+        padding: 16px 2vw 26px 2vw;
     }
 
     .chemicals-title {
-        font-size: 1.5rem;
-        margin-bottom: 1.1rem;
-    }
-
-    .chemicals-desc {
-        font-size: 1rem;
-        margin-bottom: 1.1rem;
+        font-size: 1.35em;
     }
 
     .chemicals-search {
-        font-size: 1rem;
-        padding: 0.7rem 0.9rem;
-        margin-bottom: 1.2rem;
-        max-width: 100%;
+        font-size: 1em;
+        max-width: 99vw;
     }
 
     .chemicals-categories {
-        gap: 0.8rem;
+        flex-direction: column;
+        gap: 6px;
+        align-items: stretch;
+    }
+
+    .chemicals-category-block {
+        flex: none !important;
+        width: 100%;
+        min-width: 0;
+        max-width: 100vw;
+        margin-bottom: 0;
     }
 
     .chemicals-category-link {
-        font-size: 1rem;
-        min-height: var(--min-touch-size);
-        padding: 0.85rem 0.7rem;
+        padding: 12px 7px 10px 9px;
+        min-height: 60px;
+        font-size: 0.97em;
     }
-}
 
-.chemicals-actions {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.chemicals-contact-btn,
-.chemicals-quote-btn {
-    padding: 0.7rem 1.5rem;
-    background: #f0a500;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    margin: 0 0.8rem;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    min-width: var(--min-touch-size);
-    min-height: var(--min-touch-size);
-}
-
-.chemicals-contact-btn:focus,
-.chemicals-quote-btn:focus {
-    outline: 3px solid var(--focus-outline);
-    outline-offset: 2px;
-}
-
-.chemicals-contact-btn:hover,
-.chemicals-quote-btn:hover {
-    background: #d48806;
-}
-
-.chemicals-footer {
-    background: #f5f5f5;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.95rem;
-    margin-top: 2rem;
-    color: #666;
+    .chemicals-matching-list {
+        margin: 0.3em 0 0.5em 1.1em;
+        font-size: 0.97em;
+    }
 }

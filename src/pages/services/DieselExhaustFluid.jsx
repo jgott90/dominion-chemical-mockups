@@ -109,8 +109,8 @@ function DieselExhaustFluid() {
             <section className="custom-wax-footer-note">
                 <p>
                     <em>
-                        Dominion Chemical is your reliable DEF supplier. <br />
-                        <strong>Contact us for DEF orders, service, or technical support.</strong>
+                        Dominion Chemical is your reliable Diesel Exhaust Fluid supplier. <br />
+                        <strong>Contact us for Diesel Exhaust Fluid orders, service, or technical support.</strong>
                     </em>
                 </p>
             </section>

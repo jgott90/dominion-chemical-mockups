@@ -30,10 +30,26 @@ export default function IndustrialChemicals() {
         }
     }
 
-    // Filter categories by search
-    const filteredCategories = industrialChemicalsData.filter(category =>
-        category.name.toLowerCase().includes(search.toLowerCase())
-    );
+    // Enhanced filtering: show categories that match the search or have chemicals matching the search
+    const filteredCategories = industrialChemicalsData
+        .map(category => {
+            const catMatch = category.name.toLowerCase().includes(search.toLowerCase());
+            // Products are strings, so check them directly
+            const matchingChemicals = Array.isArray(category.products)
+                ? category.products.filter(chem =>
+                    typeof chem === "string" &&
+                    chem.toLowerCase().includes(search.toLowerCase())
+                )
+                : [];
+            if (!search || catMatch || matchingChemicals.length > 0) {
+                return {
+                    ...category,
+                    matchingChemicals: search ? matchingChemicals : category.products
+                };
+            }
+            return null;
+        })
+        .filter(Boolean);
 
     return (
         <>
@@ -66,16 +82,16 @@ export default function IndustrialChemicals() {
                     Explore our range of industrial chemical categories. Select a category to view available products and details.
                 </p>
                 <label className="sr-only" htmlFor="chemicals-search">
-                    Search chemical categories
+                    Search chemical categories or chemicals
                 </label>
                 <input
                     id="chemicals-search"
                     className="chemicals-search"
                     type="search"
-                    placeholder="Search chemical categories..."
+                    placeholder="Search chemical categories or chemicals..."
                     value={search}
                     onChange={e => setSearch(e.target.value)}
-                    aria-label="Search chemical categories"
+                    aria-label="Search chemical categories or chemicals"
                     autoComplete="off"
                 />
                 <nav
@@ -83,52 +99,44 @@ export default function IndustrialChemicals() {
                     aria-label="Chemical Categories"
                 >
                     {filteredCategories.length > 0 ? (
-                        filteredCategories.map((category, idx) => (
-                            <Link
-                                to={`/products/industrial-chemicals/${slugify(category.name)}`}
-                                className="chemicals-category-link"
-                                key={category.name}
-                                aria-label={`View ${category.name} category`}
-                                tabIndex="0"
-                            >
-                                <span className="chemicals-category-title">
-                                    {category.name}
-                                </span>
-                                <span className="chemicals-category-count">
-                                    {category.products?.length || 0} chemicals
-                                </span>
-                                {category.description && (
-                                    <span className="chemicals-category-shortdesc">
-                                        {category.description}
+                        filteredCategories.map((category) => (
+                            <div className="chemicals-category-block" key={category.name}>
+                                <Link
+                                    to={`/products/industrial-chemicals/${slugify(category.name)}`}
+                                    className="chemicals-category-link"
+                                    aria-label={`View ${category.name} category`}
+                                    tabIndex="0"
+                                >
+                                    <span className="chemicals-category-title">
+                                        {category.name}
                                     </span>
+                                    <span className="chemicals-category-count">
+                                        {category.products?.length || 0} chemicals
+                                    </span>
+                                    {category.description && (
+                                        <span className="chemicals-category-shortdesc">
+                                            {category.description}
+                                        </span>
+                                    )}
+                                </Link>
+                                {/* If searching, show matching chemicals under each category */}
+                                {search && category.matchingChemicals && category.matchingChemicals.length > 0 && (
+                                    <ul className="chemicals-matching-list" aria-label={`Matching chemicals in ${category.name}`}>
+                                        {category.matchingChemicals.map((chem) => (
+                                            <li key={chem}>
+                                                <span className="chemicals-matching-chem">{chem}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 )}
-                            </Link>
+                            </div>
                         ))
                     ) : (
                         <div className="chemicals-none" role="status">
-                            No categories found.
+                            No categories or chemicals found.
                         </div>
                     )}
                 </nav>
-                <div className="chemicals-actions">
-                    <button
-                        className="chemicals-quote-btn"
-                        type="button"
-                        aria-label="Request a Quote"
-                    >
-                        Request a Quote
-                    </button>
-                    <button
-                        className="chemicals-contact-btn"
-                        type="button"
-                        aria-label="Contact Us"
-                    >
-                        Contact Us
-                    </button>
-                </div>
-                <footer className="chemicals-footer" aria-label="Site footer">
-                    &copy; {new Date().getFullYear()} Your Company Name. All rights reserved.
-                </footer>
             </main>
         </>
     );
