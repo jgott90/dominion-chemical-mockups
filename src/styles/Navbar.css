@@ -25,6 +25,8 @@
 
 .logo img {
     height: 40px;
+    width: 40px;
+    object-fit: cover;
     margin-right: 0.5rem;
 }
 
@@ -48,11 +50,6 @@
     white-space: nowrap;
     padding: 0.5rem 0;
     display: inline-block;
-}
-
-/* Show dropdown on hover for desktop */
-.dropdown-parent:hover .dropdown {
-    display: block;
 }
 
 /* Show dropdown if .open class is present (for click/tap/keyboard support) */
@@ -83,8 +80,11 @@
     color: black;
 }
 
-.dropdown li a:hover {
+.dropdown li a:hover,
+.dropdown li a:focus-visible {
     background-color: #f0f0f0;
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
 }
 
 .navbar-search {
@@ -109,11 +109,27 @@
     cursor: pointer;
 }
 
-.navbar-search button:hover {
+.navbar-search button:hover,
+.navbar-search button:focus-visible {
     background-color: #1544c0;
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
 }
 
-/* Optional: Only enable hover dropdowns on devices that support hover */
+/* Visually hidden utility for screen readers */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+    border: 0;
+    padding: 0;
+    margin: -1px;
+}
+
+/* Only enable hover dropdowns on devices that support hover */
 @media (hover: hover) {
     .dropdown-parent:hover .dropdown {
         display: block;

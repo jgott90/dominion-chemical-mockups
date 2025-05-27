@@ -5,7 +5,10 @@ import "../styles/Footer.css";
 const Footer = () => (
     <footer className="footer" role="contentinfo">
         <div className="footer-content">
-            <div className="footer-cta" tabIndex={-1} aria-labelledby="footer-heading">
+            <section
+                className="footer-cta"
+                aria-labelledby="footer-heading"
+            >
                 <h2 id="footer-heading" className="footer-heading">
                     Contact Dominion Chemical Today
                 </h2>
@@ -13,7 +16,7 @@ const Footer = () => (
                     If you need a custom blend wax or want to purchase white label wax products, Dominion Chemical has a solution for you.<br />
                     Get started today.
                 </p>
-            </div>
+            </section>
             <Link
                 to="/contact"
                 className="footer-contact-btn"

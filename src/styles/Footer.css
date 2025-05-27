@@ -46,8 +46,8 @@
     outline: none;
 }
 
-.footer-contact-btn:hover,
-.footer-contact-btn:focus-visible {
+.footer-contact-btn:focus-visible,
+.footer-contact-btn:hover {
     background: #2563eb;
     color: #fff;
     outline: 2px solid #fff;

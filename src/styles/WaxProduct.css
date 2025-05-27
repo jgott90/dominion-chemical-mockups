@@ -1,17 +1,136 @@
 .wax-product-page {
-  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem 2.5rem 1rem;
+  background: #fff;
+  min-height: 80vh;
 }
+
+.wax-product-breadcrumbs {
+  font-size: 1em;
+  margin-bottom: 24px;
+  color: #205081;
+}
+
+.wax-product-breadcrumbs ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.wax-product-breadcrumbs li {
+  display: flex;
+  align-items: center;
+}
+
 .product-hero {
   text-align: center;
   margin-bottom: 2rem;
 }
+
+.wax-product-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #053168;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.wax-product-desc {
+  font-size: 1.13em;
+  color: #31568d;
+  margin-bottom: 0.6em;
+}
+
 .product-details {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.2rem;
 }
+
 .specs {
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 8px;
+  background: #f7fafd;
+  border: 1.3px solid #e3eefd;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(30, 86, 240, 0.07);
+  padding: 1.1rem 1rem 0.95rem 1rem;
+  min-width: 200px;
+  font-size: 1.07rem;
+  color: #20325b;
+}
+
+.specs h2 {
+  font-size: 1.15em;
+  font-weight: 700;
+  margin-bottom: 0.7em;
+  color: #002d62;
+}
+
+.wax-product-applications {
+  margin-top: 2.2rem;
+}
+
+.wax-product-applications h2 {
+  font-size: 1.12em;
+  color: #002d62;
+  font-weight: 700;
+  margin-bottom: 0.6em;
+}
+
+.wax-product-applications ul {
+  margin: 0 0 0 1.2em;
+  padding: 0;
+  font-size: 1.06em;
+  color: #31568d;
+  list-style: disc inside;
+}
+
+.wax-product-applications li {
+  margin-bottom: 0.4em;
+}
+
+.wax-product-notfound {
+  padding: 2.7rem 1.2rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .wax-product-page {
+    padding: 1.2rem 0.2rem 1rem 0.2rem;
+  }
+
+  .wax-product-title {
+    font-size: 1.3rem;
+  }
+
+  .specs {
+    font-size: 1em;
+    padding: 0.8rem 0.6rem;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  background: #fff;
+  color: #000;
+  padding: 8px 16px;
+  z-index: 1000;
+  border-radius: 4px;
+  border: 2px solid #1e56f0;
+  font-weight: 700;
+  font-size: 1rem;
+  transform: translateY(-150%);
+  transition: transform 0.2s;
+}
+
+.skip-link:focus {
+  transform: translateY(0%);
+  outline: 3px solid #1e56f0;
 }
