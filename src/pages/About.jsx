@@ -13,12 +13,12 @@ function About() {
                 </p>
             </section>
 
-            {/* 80+ Years of Wax Expertise Blurb */}
+            {/* 60+ Years of Wax Expertise Blurb */}
             <section className="about-blurb-section" aria-label="Dominion Chemical Experience and Capabilities">
                 <div className="about-blurb-card">
                     <h2 className="sr-only">Dominion Chemical Experience and Capabilities</h2>
                     <p>
-                        <strong>Wax nuances are our expertise.</strong> With over 80 years of experience in the wax business, Dominion Chemical’s valuable historical expertise offers a rare working knowledge as well as trust and proven abilities to bring solutions, support, and alternatives to provide the exact product you want.
+                        <strong>Wax nuances are our expertise.</strong> With over 60 years of experience in the wax business, Dominion Chemical’s valuable historical expertise offers a rare working knowledge as well as trust and proven abilities to bring solutions, support, and alternatives to provide the exact product you want.
                     </p>
                     <p>
                         With locations in Virginia and Georgia, Dominion Chemical Company’s capacity to blend, package, and create specialty wax formulations will meet your unique needs. Your product will be combined with our dedication and proven superior customer service. <strong>Your reputation is our reputation.</strong>
@@ -59,7 +59,7 @@ function About() {
                 <div className="about-content-card">
                     <h2>Why Choose Us?</h2>
                     <ul>
-                        <li>Over 80 years of industry experience</li>
+                        <li>Over 60 years of industry experience</li>
                         <li>Flexible, customer-focused service</li>
                         <li>Modern production and packaging facilities</li>
                         <li>Certified, safe, environmentally responsible products</li>
