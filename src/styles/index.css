@@ -9,7 +9,8 @@
   line-height: 1.5;
   font-weight: 400;
   color: #000000;
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
+  background: linear-gradient(120deg, #f5f7fa 60%, #e9f5fc 100%);
 }
 
 html,

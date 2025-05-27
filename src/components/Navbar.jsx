@@ -63,12 +63,11 @@ function Navbar() {
     return (
         <header className="navbar" role="banner">
             <div className="navbar-left">
-                <Link to="/" className="logo">
+                <span className="logo" tabIndex={-1} aria-label="Dominion Chemical logo and home">
                     <img src="/projects/dominion-chemical/images/logo.jpg" alt="Dominion Chemical Logo" width={40} height={40} />
                     <span>Dominion Chemical</span>
-                </Link>
+                </span>
             </div>
-
             <nav className="navbar-links" role="navigation" aria-label="Main navigation" ref={navRef}>
                 <ul className="nav-menu">
                     <li>
@@ -105,7 +104,6 @@ function Navbar() {
                     </li>
                 </ul>
             </nav>
-
             <form className="navbar-search" onSubmit={handleSearch} role="search" aria-label="Site search">
                 <label htmlFor="navbar-search-input" className="visually-hidden">
                     Search for chemicals
