@@ -34,7 +34,6 @@
 .chemical-category-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 columns for desktop */
     gap: 1.2rem 1.2rem;
     margin-bottom: 2.7rem;
     background: #f7fafd;
@@ -58,11 +57,14 @@
     transition: box-shadow 0.18s, border-color 0.18s, transform 0.11s;
 }
 
-.chemical-category-card:hover {
+.chemical-category-card:hover,
+.chemical-category-card:focus {
     box-shadow: 0 8px 24px rgba(30, 86, 240, 0.15);
     border-color: #1e56f0;
     transform: translateY(-3px) scale(1.021);
     background: linear-gradient(120deg, #fafdff 85%, #e6edfb 100%);
+    outline: 2px solid #1e56f0;
+    outline-offset: 2px;
 }
 
 .chemical-category-none {
@@ -70,6 +72,26 @@
     color: #7d8ca3;
     padding: 2rem 0;
     grid-column: 1 / -1;
+}
+
+.chemical-category-breadcrumbs {
+    font-size: 1em;
+    color: #2563eb;
+    margin-bottom: 1.2rem;
+}
+
+.chemical-category-breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.chemical-category-breadcrumbs li {
+    display: flex;
+    align-items: center;
 }
 
 @media (max-width: 900px) {
@@ -114,4 +136,25 @@
         min-height: 34px;
         padding: 0.54rem 0.5rem;
     }
+}
+
+.skip-link {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    background: #fff;
+    color: #000;
+    padding: 8px 16px;
+    z-index: 1000;
+    border-radius: 4px;
+    border: 2px solid #1e56f0;
+    font-weight: 700;
+    font-size: 1rem;
+    transform: translateY(-150%);
+    transition: transform 0.2s;
+}
+
+.skip-link:focus {
+    transform: translateY(0%);
+    outline: 3px solid #1e56f0;
 }

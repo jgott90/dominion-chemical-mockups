@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import industrialChemicalsData from "../../data/industrialChemicals.json";
-import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
+import "../../styles/CustomWaxFormulation.css";
 import "../../styles/ChemicalCategory.css";
 
 // Converts category name to URL slug (e.g., "Water Treatment Chemicals" -> "water-treatment-chemicals")
