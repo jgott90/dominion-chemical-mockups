@@ -1,21 +1,24 @@
 import React from "react";
 import "../../styles/CustomWaxFormulation.css"; // Reuse style for consistency!
-//import blendingImg from "/projects/dominion-chemical/images/greer-slabber.jpg";
-//import slabberImg from "/projects/dominion-chemical/images/wax-slabs.jpg";
 
 function BlendingPackaging() {
     return (
         <div className="custom-wax-bg">
             <section className="custom-wax-hero">
-                <h1>Blending & Packaging Services</h1>
+                <h1 tabIndex="-1">Blending & Packaging Services</h1>
                 <p>
                     Flexible, precise, and quality-driven blending and packaging solutions for waxes and specialty formulations—delivered to your specifications.
                 </p>
             </section>
 
-            <section className="custom-wax-main">
+            <section className="custom-wax-main" aria-label="Blending and Packaging Capabilities">
                 <div className="custom-wax-image-col">
-                    <img src="/projects/dominion-chemical/images/greer-slabber.jpg" alt="Blending and Packaging Line" className="custom-wax-photo" />
+                    <img
+                        src="/projects/dominion-chemical/images/greer-slabber.jpg"
+                        alt="Blending and packaging equipment at Dominion Chemical Greer facility"
+                        className="custom-wax-photo"
+                        loading="lazy"
+                    />
                 </div>
                 <div className="custom-wax-info-col">
                     <div className="custom-wax-info-card">
@@ -37,11 +40,16 @@ function BlendingPackaging() {
                     </div>
                 </div>
                 <div className="custom-wax-image-col">
-                    <img src="/projects/dominion-chemical/images/wax-slabs.jpg" alt="Wax Slabber Process" className="custom-wax-photo" />
+                    <img
+                        src="/projects/dominion-chemical/images/wax-slabs.jpg"
+                        alt="Wax slabs produced by the slabber process"
+                        className="custom-wax-photo"
+                        loading="lazy"
+                    />
                 </div>
             </section>
 
-            <section className="custom-wax-footer-note">
+            <section className="custom-wax-footer-note" aria-label="Contact for Blending and Packaging">
                 <p>
                     <em>
                         Dominion Chemical is confident we can meet or exceed your needs. <br />

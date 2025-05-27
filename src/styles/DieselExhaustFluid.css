@@ -1,150 +1,196 @@
+/* DEF-specific styles for accessibility, mobile, and scalability */
+
 .def-main {
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
     justify-content: center;
-    gap: 32px;
-    margin-top: 18px;
-    margin-bottom: 8px;
+    margin: 2.5rem auto 1.5rem auto;
+    max-width: 900px;
 }
 
 .def-features-card,
 .def-packaging-card {
-    background: #fdf7ea;
+    background: #fafdff;
     border-radius: 14px;
-    padding: 28px 26px 20px 26px;
-    box-shadow: 0 2px 14px rgba(242, 197, 114, 0.08);
-    color: #2d2e2e;
-    border-left: 5px solid #f2c572;
-    flex: 1 1 280px;
+    box-shadow: 0 2px 12px rgba(32, 80, 129, 0.07);
+    border-left: 6px solid #b8b574;
+    padding: 1.8rem 1.5rem 1.2rem 1.5rem;
     min-width: 240px;
-    max-width: 410px;
+    flex: 1 1 320px;
+    max-width: 420px;
+    color: #223;
+    font-size: 1.07em;
+    line-height: 1.6;
 }
 
 .def-features-card h2,
 .def-packaging-card h2 {
-    color: #d48806;
-    font-size: 1.22em;
-    margin-top: 0;
+    font-size: 1.13em;
+    color: #205081;
     font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.9rem;
 }
 
 .def-feature-list,
 .def-packaging-list {
-    margin: 0 0 0 1em;
+    margin: 0 0 0 1.2em;
     padding: 0;
-    list-style: disc inside;
-    font-size: 1.08em;
+    font-size: 1.04em;
     line-height: 1.7;
 }
 
+.def-feature-list li,
+.def-packaging-list li {
+    margin-bottom: 0.55em;
+}
+
 .def-info-section {
+    margin: 1.7rem auto 1.7rem auto;
+    max-width: 900px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin: 20px 0 12px 0;
+    flex-direction: column;
+    gap: 0.9rem;
 }
 
 .def-info-block {
-    background: #e9f5fc;
-    border-radius: 10px;
-    padding: 17px 18px;
-    color: #205081;
-    font-size: 1em;
-    flex: 1 1 260px;
-    min-width: 220px;
-    max-width: 340px;
-    margin-bottom: 10px;
-    box-shadow: 0 1px 8px rgba(32, 80, 129, 0.06);
+    background: #f5f7ee;
+    border-left: 4px solid #f2c572;
+    border-radius: 8px;
+    padding: 1rem 1.3rem;
+    font-size: 1.04em;
+    color: #263024;
 }
 
 .def-table-section {
-    margin: 28px 0 14px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 2.5rem auto 1.7rem auto;
+    max-width: 900px;
+    background: #f9fafc;
+    border-radius: 14px;
+    box-shadow: 0 2px 14px rgba(32, 80, 129, 0.07);
+    padding: 2rem 1.2rem 1.8rem 1.2rem;
 }
 
 .def-table-heading {
-    font-size: 1.18em;
     color: #205081;
-    margin-bottom: 10px;
+    font-size: 1.18em;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    text-align: center;
 }
 
 .def-table-wrapper {
     overflow-x: auto;
     width: 100%;
-    max-width: 540px;
-    margin-bottom: 13px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 1px 12px rgba(32, 80, 129, 0.07);
+    margin-bottom: 1.2rem;
+    outline: none;
 }
 
 .def-consumption-table {
-    width: 100%;
     border-collapse: collapse;
-    font-size: 1em;
-    background: #e9fafd;
+    width: 100%;
+    min-width: 390px;
+    background: #fff;
+    font-size: 1.05em;
+    color: #222;
+}
+
+.def-consumption-table caption.sr-only {
+    position: absolute !important;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 .def-consumption-table th,
 .def-consumption-table td {
-    padding: 10px 14px;
-    border: 1px solid #b0ced6;
+    border: 1px solid #b8b574;
+    padding: 0.65em 1em;
     text-align: center;
 }
 
 .def-consumption-table th {
-    background: #d6f1f8;
-    color: #205081;
+    background: #f5f7ee;
+    color: #053168;
     font-weight: 700;
 }
 
+.def-consumption-table tr:nth-child(even) td {
+    background: #f9fafc;
+}
+
 .def-sds-link {
+    margin-top: 1.2rem;
     text-align: center;
-    margin-top: 8px;
-    margin-bottom: 6px;
 }
 
 .def-sds-link a {
-    color: #205081;
-    font-weight: 600;
+    color: #2563eb;
+    font-weight: 700;
     text-decoration: underline;
-    font-size: 1.08em;
 }
 
-@media (max-width: 900px) {
+.def-sds-link a:focus,
+.def-sds-link a:hover {
+    color: #205081;
+    outline: 2px solid #1e56f0;
+    outline-offset: 2px;
+}
 
-    .def-main,
-    .def-info-section {
+/* Responsive */
+@media (max-width: 900px) {
+    .def-main {
         flex-direction: column;
-        gap: 14px;
+        gap: 1.4rem;
         align-items: center;
+        padding-left: 1vw;
+        padding-right: 1vw;
     }
 
     .def-features-card,
-    .def-packaging-card,
-    .def-info-block {
-        max-width: 96vw;
+    .def-packaging-card {
+        max-width: 98vw;
         min-width: 0;
-        padding: 16px 10px;
+        padding: 1.2rem 0.7rem 1rem 0.7rem;
     }
 
-    .def-table-wrapper {
-        max-width: 99vw;
+    .def-info-section {
+        padding-left: 1vw;
+        padding-right: 1vw;
     }
 
     .def-table-section {
-        padding-left: 0;
-        padding-right: 0;
+        padding: 1.4rem 0.6rem 1.2rem 0.6rem;
     }
 }
 
-/* Accessible hidden class for table caption */
+@media (max-width: 600px) {
+    .def-main {
+        gap: 1rem;
+    }
+
+    .def-features-card,
+    .def-packaging-card {
+        font-size: 0.98em;
+        padding: 0.9rem 0.3rem 0.7rem 0.3rem;
+    }
+
+    .def-info-block {
+        font-size: 0.97em;
+        padding: 0.7rem 0.6rem;
+    }
+
+    .def-table-heading {
+        font-size: 1em;
+    }
+}
+
+/* Accessibility: visually hidden class */
 .sr-only {
-    position: absolute;
-    left: -9999px;
+    position: absolute !important;
+    left: -10000px;
     width: 1px;
     height: 1px;
     overflow: hidden;
