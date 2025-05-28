@@ -1,56 +1,112 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/Navbar.css";
+
+const dropdownMenus = [
+    {
+        label: "Products",
+        key: "products",
+        items: [
+            { to: "/products/industrial-chemicals", label: "Industrial Chemicals" },
+            { to: "/products/waxes", label: "Waxes" },
+            { to: "/products/wax-emulsions", label: "Wax Emulsions" }
+        ]
+    },
+    {
+        label: "Services",
+        key: "services",
+        items: [
+            { to: "/services/custom-wax-formulation", label: "Customized Wax Formulation" },
+            { to: "/services/blending-packaging", label: "Blending & Packaging" },
+            { to: "/services/diesel-exhaust-fluid", label: "Diesel Exhaust Fluid" }
+        ]
+    }
+];
 
 function Navbar() {
     const [openDropdown, setOpenDropdown] = useState(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const navLinksRef = useRef(null);
+    const location = useLocation();
 
-    // DRY dropdown rendering
-    const dropdownMenus = [
-        {
-            label: "Products",
-            key: "products",
-            items: [
-                { to: "/products/industrial-chemicals", label: "Industrial Chemicals" },
-                { to: "/products/waxes", label: "Waxes" },
-                { to: "/products/wax-emulsions", label: "Wax Emulsions" }
-            ]
-        },
-        {
-            label: "Services",
-            key: "services",
-            items: [
-                { to: "/services/custom-wax-formulation", label: "Customized Wax Formulation" },
-                { to: "/services/blending-packaging", label: "Blending & Packaging" },
-                { to: "/services/diesel-exhaust-fluid", label: "Diesel Exhaust Fluid" }
-            ]
+    // Keyboard navigation for dropdowns (Esc closes, arrows navigate)
+    const handleDropdownKeyDown = (e, key) => {
+        if (e.key === "Escape") {
+            setOpenDropdown(null);
         }
-    ];
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setOpenDropdown(openDropdown === key ? null : key);
+        }
+    };
+
+    // Close dropdown on outside click/mobile nav close
+    React.useEffect(() => {
+        const handleClick = (e) => {
+            if (
+                navLinksRef.current &&
+                !navLinksRef.current.contains(e.target)
+            ) {
+                setOpenDropdown(null);
+            }
+        };
+        window.addEventListener("mousedown", handleClick);
+        return () => window.removeEventListener("mousedown", handleClick);
+    }, []);
+
+    // Close mobile nav on route change
+    React.useEffect(() => {
+        setMobileMenuOpen(false);
+        setOpenDropdown(null);
+    }, [location.pathname]);
 
     return (
-        <header className="navbar">
+        <header className="navbar" role="banner">
             <div className="navbar-left">
-                <span className="logo">
-                    <img src="/images/logo-small.png" alt="Dominion Chemical Logo" width={40} height={40} />
+                <Link className="logo" to="/" tabIndex={0} aria-label="Home">
+                    <img src="/images/logo-small.png" alt="Dominion Chemical Logo" width={54} height={46} />
                     <span>Dominion Chemical</span>
-                </span>
+                </Link>
+                <button
+                    className="hamburger"
+                    aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={mobileMenuOpen}
+                    aria-controls="main-nav"
+                    onClick={() => setMobileMenuOpen((prev) => !prev)}
+                >
+                    <span aria-hidden="true">{mobileMenuOpen ? "✕" : "☰"}</span>
+                </button>
             </div>
-            <nav className="navbar-links">
+            <nav
+                className={`navbar-links${mobileMenuOpen ? " open" : ""}`}
+                id="main-nav"
+                role="navigation"
+                aria-label="Main navigation"
+                ref={navLinksRef}
+            >
                 <ul className="nav-menu">
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
                     </li>
                     <li>
-                        <Link to="/our-story">Our Story</Link>
+                        <Link to="/our-story" className={location.pathname.startsWith("/our-story") ? "active" : ""}>Our Story</Link>
                     </li>
                     {dropdownMenus.map(({ label, key, items }) => (
                         <li
-                            className={`dropdown-parent${openDropdown === key ? ' open' : ''}`}
+                            className={`dropdown-parent${openDropdown === key ? " open" : ""}`}
                             key={key}
-                            onClick={() => setOpenDropdown(openDropdown === key ? null : key)}
                         >
-                            <span>{label}</span>
-                            <ul className="dropdown">
+                            <span
+                                tabIndex={0}
+                                aria-haspopup="true"
+                                aria-expanded={openDropdown === key}
+                                aria-controls={`${key}-dropdown`}
+                                onClick={() => setOpenDropdown(openDropdown === key ? null : key)}
+                                onKeyDown={e => handleDropdownKeyDown(e, key)}
+                            >
+                                {label} <span aria-hidden="true">▼</span>
+                            </span>
+                            <ul className="dropdown" id={`${key}-dropdown`} role="menu">
                                 {items.map(({ to, label }) => (
                                     <li key={to}>
                                         <Link to={to}>{label}</Link>
@@ -60,7 +116,7 @@ function Navbar() {
                         </li>
                     ))}
                     <li>
-                        <Link to="/contact">Contact</Link>
+                        <Link to="/contact" className={location.pathname.startsWith("/contact") ? "active" : ""}>Contact</Link>
                     </li>
                 </ul>
             </nav>

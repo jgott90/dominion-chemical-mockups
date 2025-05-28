@@ -1,3 +1,15 @@
+:root {
+    --brand-blue: #305CDE;
+    --brand-blue-light: #e0e8fa;
+    --brand-black: #000000;
+    --brand-white: #FFFFFF;
+}
+
+.custom-wax-bg {
+    background: var(--brand-blue-light);
+    min-height: 100vh;
+}
+
 .about-hero {
     text-align: center;
     padding: 48px 16px 28px 16px;
@@ -6,14 +18,14 @@
 
 .about-hero h1 {
     font-size: 2.2em;
-    color: #205081;
+    color: var(--brand-blue);
     margin-bottom: 13px;
     letter-spacing: 0.02em;
 }
 
 .about-hero p {
     font-size: 1.25em;
-    color: #223;
+    color: var(--brand-black);
     max-width: 750px;
     margin: 0 auto;
     line-height: 1.6;
@@ -26,16 +38,20 @@
 }
 
 .about-blurb-card {
-    background: #f5f7ee;
+    background: var(--brand-white);
     border-radius: 14px;
-    box-shadow: 0 2px 12px rgba(32, 80, 129, 0.06);
-    border-left: 6px solid #b8b574;
+    box-shadow: 0 2px 12px rgba(48, 92, 222, 0.08);
+    border-left: 5px solid var(--brand-blue);
     padding: 28px 32px 18px 32px;
     max-width: 900px;
     margin: 0 10px;
-    color: #263024;
+    color: var(--brand-black);
     font-size: 1.08em;
     line-height: 1.65;
+}
+
+.about-blurb-card strong {
+    color: var(--brand-blue);
 }
 
 .about-blurb-card p {
@@ -53,22 +69,25 @@
 }
 
 .about-content-card {
-    background: #f9fafc;
+    background: var(--brand-white);
     border-radius: 14px;
-    box-shadow: 0 2px 16px rgba(32, 80, 129, 0.07);
-    border-left: 6px solid #f2c572;
+    box-shadow: 0 2px 16px rgba(48, 92, 222, 0.09);
+    border-left: 5px solid var(--brand-blue);
     padding: 28px 32px 22px 32px;
     min-width: 270px;
     max-width: 370px;
     flex: 1 1 320px;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-content-card h2 {
-    color: #d48806;
+    color: var(--brand-blue);
     font-size: 1.18em;
     font-weight: 700;
     margin-top: 0;
+    margin-bottom: 0.7em;
 }
 
 .about-content-card ul {
@@ -76,6 +95,7 @@
     padding: 0;
     font-size: 1.08em;
     line-height: 1.7;
+    color: var(--brand-black);
 }
 
 .about-content-card li {
@@ -85,11 +105,24 @@
 .about-content-card p {
     font-size: 1.08em;
     line-height: 1.65;
+    color: var(--brand-black);
 }
 
 .about-footer-note {
     margin-top: 40px;
     font-size: 1.15em;
+    text-align: center;
+    color: var(--brand-blue);
+}
+
+.about-footer-note em {
+    color: var(--brand-blue);
+    font-style: italic;
+}
+
+.about-footer-note strong {
+    color: var(--brand-blue);
+    font-weight: 700;
 }
 
 @media (max-width: 900px) {

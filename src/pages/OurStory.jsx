@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/CustomWaxFormulation.css";
 import "../styles/OurStory.css";
 
 function OurStory() {
@@ -13,12 +12,12 @@ function OurStory() {
                 </p>
             </section>
 
-            {/* 60+ Years of Wax Expertise Blurb */}
+            {/* Experience Blurb */}
             <section className="about-blurb-section" aria-label="Dominion Chemical Experience and Capabilities">
                 <div className="about-blurb-card">
                     <h2 className="sr-only">Dominion Chemical Experience and Capabilities</h2>
                     <p>
-                        <strong>Attention grabbing sentence</strong> Talk about experience and history of company. Circle back to how experience & history set Dominion apart to meet current needs.
+                        <strong>Attention grabbing sentence</strong> Talk about experience and history of company. Circle back to how experience &amp; history set Dominion apart to meet current needs.
                     </p>
                 </div>
             </section>
@@ -37,7 +36,6 @@ function OurStory() {
                         <li>
                             <strong>Third with continuation as needed</strong> Some text here.
                         </li>
-
                     </ul>
                 </div>
 
@@ -50,15 +48,13 @@ function OurStory() {
 
                 <div className="about-content-card">
                     <h2>Third Highlight</h2>
-                    <ul>
-                        <p>
-                            Final blurb. Ideally a call to action to encourage customers to choose Dominion
-                        </p>
-                    </ul>
+                    <p>
+                        Final blurb. Ideally a call to action to encourage customers to choose Dominion
+                    </p>
                 </div>
             </section>
 
-            <section className="custom-wax-footer-note about-footer-note">
+            <section className="about-footer-note">
                 <p>
                     <em>
                         Dominion Chemical—Ready to meet your specialty chemical, blending, and packaging needs.<br />
