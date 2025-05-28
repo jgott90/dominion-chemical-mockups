@@ -27,7 +27,7 @@
 
 .logo img {
     height: 40px;
-    width: 40px;
+    width: 50px;
     object-fit: cover;
     margin-right: 0.5rem;
     /* Prevent pointer cursor on logo image */

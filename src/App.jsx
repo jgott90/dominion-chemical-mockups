@@ -2,23 +2,10 @@ import React, { Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import AppContentLoader from "./components/AppContentLoader";
-import AutoIndexer from "./components/AutoIndexer";
 
 // Lazy loaded page components
 const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const SearchResults = lazy(() => import("./pages/SearchResults"));
-const Waxes = lazy(() => import("./pages/products/Waxes"));
-const WaxEmulsions = lazy(() => import("./pages/products/WaxEmulsions"));
-const IndustrialChemicals = lazy(() => import("./pages/products/IndustrialChemicals"));
-const ChemicalsCategory = lazy(() => import("./pages/products/ChemicalCategory"));
-const BlendingPackaging = lazy(() => import("./pages/services/BlendingPackaging"));
-const CustomWaxFormulation = lazy(() => import("./pages/services/CustomWaxFormulation"));
-const DieselExhaustFluid = lazy(() => import("./pages/services/DieselExhaustFluid"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const Offline = lazy(() => import("./pages/Offline"));
+
 
 function App() {
   return (
@@ -37,8 +24,7 @@ function App() {
         Skip to main content
       </a>
       <Navbar />
-      <AppContentLoader />
-      <AutoIndexer />
+
       <main
         id="main-content"
         className="main-content"
@@ -96,20 +82,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/search" element={<SearchResults />} />
-            <Route path="/products" element={<Navigate to="/products/waxes" replace />} />
-            <Route path="/products/waxes" element={<Waxes />} />
-            <Route path="/products/wax-emulsions" element={<WaxEmulsions />} />
-            <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
-            <Route path="/products/industrial-chemicals/:category" element={<ChemicalsCategory />} />
-            <Route path="/services/custom-wax-formulation" element={<CustomWaxFormulation />} />
-            <Route path="/services/blending-packaging" element={<BlendingPackaging />} />
-            <Route path="/services/diesel-exhaust-fluid" element={<DieselExhaustFluid />} />
-            <Route path="/notfound" element={<NotFound />} />
-            <Route path="/offline" element={<Offline />} />
-            <Route path="*" element={<NotFound />} />
+
           </Routes>
         </Suspense>
       </main>

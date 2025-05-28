@@ -64,7 +64,7 @@ function Navbar() {
         <header className="navbar" role="banner">
             <div className="navbar-left">
                 <span className="logo" tabIndex={-1} aria-label="Dominion Chemical logo and home">
-                    <img src="/projects/dominion-chemical/images/logo.jpg" alt="Dominion Chemical Logo" width={40} height={40} />
+                    <img src="/projects/dominion-chemical/images/logo-small.png" alt="Dominion Chemical Logo" width={40} height={40} />
                     <span>Dominion Chemical</span>
                 </span>
             </div>
@@ -111,11 +111,10 @@ function Navbar() {
                 <input
                     id="navbar-search-input"
                     type="text"
-                    placeholder="Search for chemicals..."
+                    placeholder="Optional search bar..."
                     value={searchQueryLocal}
                     onChange={(e) => setSearchQueryLocal(e.target.value)}
                     autoComplete="off"
-                    aria-label="Search for chemicals"
                 />
                 <button type="submit" aria-label="Submit search">Go</button>
             </form>
