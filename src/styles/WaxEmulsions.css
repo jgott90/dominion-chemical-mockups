@@ -1,0 +1,142 @@
+.waxemulsions-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2vw 2.5rem 2vw;
+    background: #fcfdff;
+    min-height: 100vh;
+    color: #19213a;
+}
+
+.waxemulsions-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0b2256;
+    margin-bottom: 0.7rem;
+    letter-spacing: -1px;
+}
+
+.waxemulsions-desc {
+    font-size: 1.08em;
+    color: #1e293b;
+    margin-bottom: 2.2rem;
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+.waxemulsions-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    justify-content: flex-start;
+}
+
+.waxemulsions-img-col {
+    flex: 0 0 270px;
+    margin: 0;
+}
+
+.waxemulsions-img {
+    border-radius: 12px;
+    max-width: 100%;
+    box-shadow: 0 2px 16px rgba(37, 99, 235, 0.05);
+    height: auto;
+    display: block;
+}
+
+.waxemulsions-industries-col {
+    flex: 1 1 320px;
+    min-width: 220px;
+    max-width: 700px;
+}
+
+.waxemulsions-industries-title {
+    font-size: 1.18em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    color: #16376c;
+}
+
+.waxemulsions-industries-list {
+    columns: 2;
+    column-gap: 2.2rem;
+    margin: 0;
+    padding-left: 1.1em;
+    font-size: 1.07em;
+    line-height: 1.8;
+    color: #25314d;
+}
+
+.waxemulsions-industries-list li {
+    break-inside: avoid;
+    margin-bottom: 0.1em;
+}
+
+.waxemulsions-alert {
+    background: #fff9e4;
+    border-left: 4px solid #fbbf24;
+    border-radius: 8px;
+    padding: 1rem 1.6rem;
+    margin-top: 1.3rem;
+    font-size: 1.07em;
+    color: #8a6d1d;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Accessibility: skip-link */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 100;
+    background: #222;
+    color: #fff;
+    padding: 8px 16px;
+}
+
+.skip-link:focus {
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    font-size: 1.1rem;
+    border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+    .waxemulsions-content {
+        flex-direction: column;
+        gap: 1.7rem;
+        align-items: stretch;
+    }
+
+    .waxemulsions-industries-list {
+        columns: 1;
+    }
+
+    .waxemulsions-main {
+        padding: 1rem 3vw 2rem 3vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .waxemulsions-title {
+        font-size: 1.3rem;
+    }
+
+    .waxemulsions-desc {
+        font-size: 1em;
+        margin-bottom: 1.2rem;
+    }
+
+    .waxemulsions-alert {
+        font-size: 0.99em;
+        padding: 0.7rem 0.7rem;
+    }
+}
