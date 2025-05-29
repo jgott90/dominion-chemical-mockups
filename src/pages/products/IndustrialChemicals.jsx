@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import industrialChemicalsData from "../../data/industrialChemicals.json";
 import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
@@ -30,8 +30,26 @@ export default function IndustrialChemicals() {
         }
     }
 
-    // No filtering/searching logic applied (search is inert)
-    const categories = industrialChemicalsData;
+    // Enhanced filtering: show categories that match the search or have chemicals matching the search
+    const filteredCategories = industrialChemicalsData
+        .map(category => {
+            const catMatch = category.name.toLowerCase().includes(search.toLowerCase());
+            // Products are strings, so check them directly
+            const matchingChemicals = Array.isArray(category.products)
+                ? category.products.filter(chem =>
+                    typeof chem === "string" &&
+                    chem.toLowerCase().includes(search.toLowerCase())
+                )
+                : [];
+            if (!search || catMatch || matchingChemicals.length > 0) {
+                return {
+                    ...category,
+                    matchingChemicals: search ? matchingChemicals : category.products
+                };
+            }
+            return null;
+        })
+        .filter(Boolean);
 
     return (
         <>
@@ -75,14 +93,13 @@ export default function IndustrialChemicals() {
                     onChange={e => setSearch(e.target.value)}
                     aria-label="Search chemical categories or chemicals"
                     autoComplete="off"
-                // onChange updates local state, but does not filter anything
                 />
                 <nav
                     className="chemicals-categories"
                     aria-label="Chemical Categories"
                 >
-                    {categories.length > 0 ? (
-                        categories.map((category) => (
+                    {filteredCategories.length > 0 ? (
+                        filteredCategories.map((category) => (
                             <div className="chemicals-category-block" key={category.name}>
                                 <Link
                                     to={`/products/industrial-chemicals/${slugify(category.name)}`}
@@ -102,11 +119,21 @@ export default function IndustrialChemicals() {
                                         </span>
                                     )}
                                 </Link>
+                                {/* If searching, show matching chemicals under each category */}
+                                {search && category.matchingChemicals && category.matchingChemicals.length > 0 && (
+                                    <ul className="chemicals-matching-list" aria-label={`Matching chemicals in ${category.name}`}>
+                                        {category.matchingChemicals.map((chem) => (
+                                            <li key={chem}>
+                                                <span className="chemicals-matching-chem">{chem}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
                         ))
                     ) : (
                         <div className="chemicals-none" role="status">
-                            No categories available.
+                            No categories or chemicals found.
                         </div>
                     )}
                 </nav>

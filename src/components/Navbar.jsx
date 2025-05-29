@@ -1,134 +1,121 @@
-import React, { useState, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { SearchContext } from "../context/SearchContext";
 import "../styles/Navbar.css";
 
-const dropdownMenus = [
-    {
-        label: "Products",
-        key: "products",
-        items: [
-            { to: "/products/industrial-chemicals", label: "Industrial Chemicals" },
-            { to: "/products/waxes", label: "Waxes" },
-            { to: "/products/wax-emulsions", label: "Wax Emulsions" }
-        ]
-    },
-    {
-        label: "Services",
-        key: "services",
-        items: [
-            { to: "/services/custom-wax-formulation", label: "Customized Wax Formulation" },
-            { to: "/services/blending-packaging", label: "Blending & Packaging" },
-            { to: "/services/diesel-exhaust-fluid", label: "Diesel Exhaust Fluid" }
-        ]
-    }
-];
-
 function Navbar() {
+    const [searchQueryLocal, setSearchQueryLocal] = useState("");
+    const { setSearchQuery } = useContext(SearchContext);
     const [openDropdown, setOpenDropdown] = useState(null);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const navLinksRef = useRef(null);
-    const location = useLocation();
+    const navigate = useNavigate();
+    const navRef = useRef();
 
-    // Keyboard navigation for dropdowns (Esc closes, arrows navigate)
-    const handleDropdownKeyDown = (e, key) => {
-        if (e.key === "Escape") {
-            setOpenDropdown(null);
-        }
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            setOpenDropdown(openDropdown === key ? null : key);
-        }
-    };
-
-    // Close dropdown on outside click/mobile nav close
-    React.useEffect(() => {
+    // Accessible dropdown toggle and close on outside click
+    useEffect(() => {
         const handleClick = (e) => {
-            if (
-                navLinksRef.current &&
-                !navLinksRef.current.contains(e.target)
-            ) {
+            if (navRef.current && !navRef.current.contains(e.target)) {
                 setOpenDropdown(null);
             }
         };
-        window.addEventListener("mousedown", handleClick);
-        return () => window.removeEventListener("mousedown", handleClick);
+        document.addEventListener('mousedown', handleClick);
+        return () => document.removeEventListener('mousedown', handleClick);
     }, []);
 
-    // Close mobile nav on route change
-    React.useEffect(() => {
-        setMobileMenuOpen(false);
-        setOpenDropdown(null);
-    }, [location.pathname]);
+    // Keyboard navigation: close dropdown with Escape
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") setOpenDropdown(null);
+        };
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, []);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQueryLocal.trim()) {
+            setSearchQuery(searchQueryLocal.trim());
+            navigate(`/search?query=${encodeURIComponent(searchQueryLocal.trim())}`);
+        }
+    };
+
+    // DRY dropdown rendering
+    const dropdownMenus = [
+        {
+            label: "Products",
+            key: "products",
+            items: [
+                { to: "/products/industrial-chemicals", label: "Industrial Chemicals" },
+                { to: "/products/waxes", label: "Waxes" },
+                { to: "/products/wax-emulsions", label: "Wax Emulsions" }
+            ]
+        },
+        {
+            label: "Services",
+            key: "services",
+            items: [
+                { to: "/services/custom-wax-formulation", label: "Customized Wax Formulation" },
+                { to: "/services/blending-packaging", label: "Blending & Packaging" },
+                { to: "/services/diesel-exhaust-fluid", label: "Diesel Exhaust Fluid" }
+            ]
+        }
+    ];
 
     return (
         <header className="navbar" role="banner">
             <div className="navbar-left">
-                <Link className="logo" to="/" tabIndex={0} aria-label="Home">
-                    <img src="/images/logo-small.png" alt="Dominion Chemical Logo" width={54} height={46} />
+                <span className="logo">
+                    <img src="/images/logo-small.png" alt="Dominion Chemical Logo" />
                     <span>Dominion Chemical</span>
-                </Link>
-                <button
-                    className="hamburger"
-                    aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                    aria-expanded={mobileMenuOpen}
-                    aria-controls="main-nav"
-                    onClick={() => setMobileMenuOpen((prev) => !prev)}
-                >
-                    <span aria-hidden="true">{mobileMenuOpen ? "✕" : "☰"}</span>
-                </button>
+                </span>
             </div>
-            <nav
-                className={`navbar-links${mobileMenuOpen ? " open" : ""}`}
-                id="main-nav"
-                role="navigation"
-                aria-label="Main navigation"
-                ref={navLinksRef}
-            >
+            <nav className="navbar-links" role="navigation" aria-label="Main navigation" ref={navRef}>
                 <ul className="nav-menu">
                     <li>
-                        <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
+                        <Link to="/" tabIndex={0}>Home</Link>
                     </li>
                     <li>
-                        <Link to="/our-story" className={location.pathname.startsWith("/our-story") ? "active" : ""}>Our Story</Link>
+                        <Link to="/about" tabIndex={0}>About</Link>
                     </li>
                     {dropdownMenus.map(({ label, key, items }) => (
                         <li
-                            className={`dropdown-parent${openDropdown === key ? " open" : ""}`}
+                            className={`dropdown-parent${openDropdown === key ? ' open' : ''}`}
                             key={key}
+                            onClick={() => setOpenDropdown(openDropdown === key ? null : key)}
+                            tabIndex={0}
+                            onKeyDown={e => {
+                                if (e.key === 'Enter' || e.key === ' ') setOpenDropdown(openDropdown === key ? null : key);
+                            }}
+                            aria-haspopup="true"
+                            aria-expanded={openDropdown === key}
+                            aria-label={`${label} menu`}
                         >
-                            <span
-                                tabIndex={0}
-                                aria-haspopup="true"
-                                aria-expanded={openDropdown === key}
-                                aria-controls={`${key}-dropdown`}
-                                onClick={() => setOpenDropdown(openDropdown === key ? null : key)}
-                                onKeyDown={e => handleDropdownKeyDown(e, key)}
-                            >
-                                {label} <span aria-hidden="true">▼</span>
-                            </span>
-                            <ul className="dropdown" id={`${key}-dropdown`} role="menu">
+                            <span aria-hidden="true">{label}</span>
+                            <ul className="dropdown" role="menu" aria-label={`${label} submenu`}>
                                 {items.map(({ to, label }) => (
-                                    <li key={to}>
-                                        <Link to={to}>{label}</Link>
+                                    <li key={to} role="none">
+                                        <Link to={to} role="menuitem" tabIndex={openDropdown === key ? 0 : -1}>{label}</Link>
                                     </li>
                                 ))}
                             </ul>
                         </li>
                     ))}
                     <li>
-                        <Link to="/contact" className={location.pathname.startsWith("/contact") ? "active" : ""}>Contact</Link>
+                        <Link to="/contact" tabIndex={0}>Contact</Link>
                     </li>
                 </ul>
             </nav>
-            <form className="navbar-search" role="search" aria-label="Site search" onSubmit={e => e.preventDefault()}>
+            <form className="navbar-search" onSubmit={handleSearch} role="search" aria-label="Site search">
                 <label htmlFor="navbar-search-input" className="visually-hidden">
                     Search for chemicals
                 </label>
                 <input
                     id="navbar-search-input"
                     type="text"
-                    placeholder="Optional search bar..."
+                    placeholder="Search for chemicals..."
+                    value={searchQueryLocal}
+                    onChange={(e) => setSearchQueryLocal(e.target.value)}
                     autoComplete="off"
+                    aria-label="Search for chemicals"
                 />
                 <button type="submit" aria-label="Submit search">Go</button>
             </form>

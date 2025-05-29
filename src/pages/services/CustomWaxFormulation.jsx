@@ -1,31 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../../styles/CustomWaxFormulation.css";
 
-const images = [
-    {
-        src: "/images/custom-formulation-tank.jpg",
-        alt: "Plant Equipment – Stainless steel tank and structure in the wax formulation facility.",
-        caption: null
-    },
-    {
-        src: "/images/custom-wax-formulations-flowchart.jpg",
-        alt: "Process Flow Diagram of customized wax formulation.",
-        caption: "Process Flow – Click to Enlarge"
-    }
-];
-
 function CustomWaxFormulation() {
-    const [modalImage, setModalImage] = useState(null);
+    const [enlarge, setEnlarge] = useState(false);
+    const modalRef = useRef(null);
+    const closeBtnRef = useRef(null);
 
-    // Esc closes modal (accessibility)
-    React.useEffect(() => {
-        if (!modalImage) return;
+    // ESC closes modal
+    useEffect(() => {
+        if (!enlarge) return;
         const handler = (e) => {
-            if (e.key === "Escape") setModalImage(null);
+            if (e.key === "Escape") setEnlarge(false);
         };
         window.addEventListener("keydown", handler);
         return () => window.removeEventListener("keydown", handler);
-    }, [modalImage]);
+    }, [enlarge]);
+
+    // Focus trap and accessibility
+    useEffect(() => {
+        if (enlarge && closeBtnRef.current) {
+            closeBtnRef.current.focus();
+        }
+    }, [enlarge]);
+
+    // Trap focus inside modal when open for accessibility
+    useEffect(() => {
+        if (!enlarge) return;
+
+        function trapFocus(e) {
+            const focusableElements = modalRef.current.querySelectorAll(
+                'button, [tabindex]:not([tabindex="-1"])'
+            );
+            if (!focusableElements.length) return;
+
+            const first = focusableElements[0];
+            const last = focusableElements[focusableElements.length - 1];
+            if (e.key === "Tab") {
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
+            }
+        }
+
+        modalRef.current?.addEventListener("keydown", trapFocus);
+        return () => modalRef.current?.removeEventListener("keydown", trapFocus);
+    }, [enlarge]);
 
     return (
         <div className="custom-wax-bg">
@@ -37,88 +64,80 @@ function CustomWaxFormulation() {
             </section>
 
             <section className="custom-wax-main">
-                {/* Image column 1 */}
                 <div className="custom-wax-image-col">
                     <img
-                        src={images[0].src}
-                        alt={images[0].alt}
+                        src="/images/custom-formulation-tank.jpg"
+                        alt="Plant Equipment"
                         className="custom-wax-photo"
-                        tabIndex={0}
-                        onClick={() => setModalImage(images[0])}
-                        onKeyDown={e => (e.key === "Enter" || e.key === " ") && setModalImage(images[0])}
-                        aria-label="Enlarge Plant Equipment image"
-                        role="button"
                     />
                 </div>
-                {/* Info card */}
                 <div className="custom-wax-info-col">
-                    <div className="custom-wax-info-card" tabIndex={0}>
-                        <h2>Our Custom Approach</h2>
+                    <div className="custom-wax-info-card">
+                        <h2>Expert Guidance, Unique Solutions</h2>
                         <p>
                             <strong>
-                                We partner with you for the perfect blend.
+                                The most important business decision you must make is determining the products used in your production.
                             </strong>
                             <br />
-                            Whether you need a unique wax formula for a specialty process or consistent quality at scale,
-                            Dominion Chemical’s decades of expertise and modern facilities ensure your goals are met with precision and flexibility.
+                            We understand how difficult this decision can be and are available to help you.
                         </p>
-                        <ul>
-                            <li>• Wide selection of waxes and additives</li>
-                            <li>• Small batch to full production runs</li>
-                            <li>• In-house lab for R&D and QC</li>
-                            <li>• Blending, packaging, and technical support</li>
-                        </ul>
+                        <p>
+                            Our staff and chemists provide individual, technical assistance and troubleshooting for your challenges. We assist in developing new and advanced systems designed for your process and products.
+                        </p>
+                        <p>
+                            Every application is unique. By understanding your needs and your facility, we can guide you with precise product selection.
+                        </p>
                     </div>
                 </div>
-                {/* Image column 2 */}
                 <div className="custom-wax-image-col">
                     <img
-                        src={images[1].src}
-                        alt={images[1].alt}
+                        src="/images/custom-wax-formulations-flowchart.jpg"
+                        alt="Process Flow Diagram"
                         className="custom-wax-diagram"
+                        onClick={() => setEnlarge(true)}
+                        style={{ cursor: "zoom-in" }}
                         tabIndex={0}
-                        onClick={() => setModalImage(images[1])}
-                        onKeyDown={e => (e.key === "Enter" || e.key === " ") && setModalImage(images[1])}
-                        aria-label="Enlarge Process Flow diagram"
-                        role="button"
+                        onKeyDown={e => {
+                            if (e.key === "Enter" || e.key === " ") setEnlarge(true);
+                        }}
+                        aria-label="Enlarge process flow diagram"
                     />
                     <div className="custom-wax-diagram-caption">
-                        {images[1].caption}
+                        Process Flow – Click to Enlarge
                     </div>
                 </div>
             </section>
 
             <section className="custom-wax-footer-note">
                 <p>
-                    Good communication is essential to a successful business. We welcome open discussions to help you meet your needs.<br />
-                    <strong>Dominion Chemical Company would be proud to serve you.</strong>
+                    <em>
+                        Good communication is essential to a successful business. We welcome open discussions to help you meet your needs.<br />
+                        <strong>Dominion Chemical Company would be proud to serve you.</strong>
+                    </em>
                 </p>
             </section>
 
-            {/* Modal for enlarged images */}
-            {modalImage && (
+            {/* Modal */}
+            {enlarge && (
                 <div
                     className="custom-wax-modal-bg"
+                    onClick={() => setEnlarge(false)}
                     tabIndex={-1}
                     aria-modal="true"
-                    aria-label="Enlarged image"
-                    onClick={() => setModalImage(null)}
-                    onKeyDown={e => { if (e.key === "Escape") setModalImage(null); }}
+                    role="dialog"
+                    aria-label="Enlarged Process Flow Diagram"
+                    ref={modalRef}
                 >
                     <button
                         className="custom-wax-modal-close"
-                        aria-label="Close enlarged image"
-                        autoFocus
-                        onClick={e => { e.stopPropagation(); setModalImage(null); }}
-                    >
-                        ×
-                    </button>
+                        onClick={e => { e.stopPropagation(); setEnlarge(false); }}
+                        ref={closeBtnRef}
+                        aria-label="Close enlarged process flow diagram"
+                    >&times;</button>
                     <img
-                        src={modalImage.src}
-                        alt={modalImage.alt}
+                        src="/images/custom-wax-formulations-flowchart.jpg"
+                        alt="Enlarged Process Flow Diagram"
                         className="custom-wax-modal-img"
-                        tabIndex={0}
-                        aria-label={modalImage.alt}
                         onClick={e => e.stopPropagation()}
                     />
                 </div>

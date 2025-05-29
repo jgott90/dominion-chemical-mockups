@@ -1,19 +1,9 @@
-:root {
-    --brand-blue: #305CDE;
-    --brand-blue-dark: #1544c0;
-    --brand-blue-light: #e0e8fa;
-    --brand-black: #000000;
-    --brand-white: #FFFFFF;
-}
-
-/* Background & layout */
 .custom-wax-bg {
-    background: var(--brand-blue-light);
+    background: linear-gradient(120deg, #f5f7fa 60%, #e9f5fc 100%);
     min-height: 100vh;
     padding-bottom: 40px;
 }
 
-/* Hero section */
 .custom-wax-hero {
     text-align: center;
     padding: 48px 12px 24px 12px;
@@ -23,9 +13,9 @@
 
 .custom-wax-hero h1 {
     font-size: 2.5em;
-    color: var(--brand-blue);
+    color: #205081;
     margin-bottom: 8px;
-    border-bottom: 3px solid var(--brand-blue);
+    border-bottom: 3px solid #f2c572;
     display: inline-block;
     padding-bottom: 6px;
     letter-spacing: 0.03em;
@@ -33,13 +23,11 @@
 
 .custom-wax-hero p {
     font-size: 1.2em;
-    color: var(--brand-black);
+    color: #333;
     margin: 0 auto 10px auto;
     max-width: 700px;
-    line-height: 1.5;
 }
 
-/* Main content layout */
 .custom-wax-main {
     display: flex;
     flex-wrap: wrap;
@@ -66,12 +54,11 @@
     aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(48, 92, 222, 0.09);
+    box-shadow: 0 2px 12px rgba(32, 80, 129, 0.09);
     margin-bottom: 8px;
-    background: var(--brand-white);
-    border: 2px solid var(--brand-blue);
-    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
-    cursor: pointer;
+    background: #fff;
+    border: 1.5px solid #e3e3e3;
+    transition: transform 0.18s, box-shadow 0.18s;
 }
 
 .custom-wax-photo:hover,
@@ -79,19 +66,16 @@
 .custom-wax-photo:focus,
 .custom-wax-diagram:focus {
     transform: scale(1.04);
-    box-shadow: 0 4px 18px rgba(48, 92, 222, 0.17);
-    outline: 2px solid var(--brand-blue);
-    border-color: var(--brand-blue-dark);
+    box-shadow: 0 4px 18px rgba(32, 80, 129, 0.13);
+    outline: none;
 }
 
 .custom-wax-diagram-caption {
-    font-size: 0.97em;
-    color: #444;
+    font-size: 0.95em;
+    color: #777;
     text-align: center;
-    margin-bottom: 10px;
 }
 
-/* Info card styling */
 .custom-wax-info-col {
     flex: 2 1 480px;
     min-width: 320px;
@@ -100,39 +84,30 @@
 }
 
 .custom-wax-info-card {
-    background: var(--brand-white);
+    background: #fdf7ea;
     border-radius: 14px;
     padding: 32px 32px 24px 32px;
-    box-shadow: 0 2px 16px rgba(48, 92, 222, 0.10);
-    color: var(--brand-black);
+    box-shadow: 0 2px 16px rgba(242, 197, 114, 0.12);
+    color: #2d2e2e;
     font-size: 1.09em;
     line-height: 1.6;
-    border-left: 6px solid var(--brand-blue);
+    border-left: 6px solid #f2c572;
     max-width: 720px;
 }
 
 .custom-wax-info-card h2 {
     margin-top: 0;
-    color: var(--brand-blue);
+    color: #d48806;
     font-size: 1.4em;
     font-weight: 700;
     letter-spacing: 0.01em;
-    margin-bottom: 0.7em;
 }
 
-/* Footer/CTA note */
 .custom-wax-footer-note {
     text-align: center;
     margin: 40px 0 0 0;
-    color: var(--brand-blue);
-    font-size: 1.13em;
-    font-style: italic;
-}
-
-.custom-wax-footer-note strong {
-    color: var(--brand-blue-dark);
-    font-weight: 700;
-    font-style: normal;
+    color: #264372;
+    font-size: 1.1em;
 }
 
 /* Modal styles for enlarged image */
@@ -166,9 +141,9 @@
     max-height: 90vh;
     border-radius: 11px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.28);
-    background: var(--brand-white);
+    background: #fff;
     cursor: default;
-    border: 2px solid var(--brand-blue);
+    border: 2px solid #f2c572;
     animation: popIn 0.17s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
 }
@@ -185,13 +160,14 @@
     }
 }
 
+/* Modal close button styles */
 .custom-wax-modal-close {
     position: absolute;
     top: 2vw;
     right: 3vw;
-    background: var(--brand-white);
+    background: #fff;
     border: none;
-    color: var(--brand-black);
+    color: #222;
     font-size: 2.3rem;
     border-radius: 50%;
     width: 44px;
@@ -205,7 +181,7 @@
 }
 
 .custom-wax-modal-close:focus {
-    outline: 2px solid var(--brand-blue);
+    outline: 2px solid #2563eb;
 }
 
 /* Responsive styles for tablets */

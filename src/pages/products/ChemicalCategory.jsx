@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import industrialChemicalsData from "../../data/industrialChemicals.json";
 import "../../styles/CustomWaxFormulation.css";
@@ -14,6 +14,7 @@ function slugify(str) {
 
 export default function ChemicalCategory() {
     const { category } = useParams();
+    const [search, setSearch] = useState("");
     const mainHeadingRef = useRef(null);
 
     // Focus h1 on mount for screen reader users
@@ -28,6 +29,11 @@ export default function ChemicalCategory() {
         (cat) => slugify(cat.name) === category
     );
     const chemicals = categoryData ? categoryData.products : [];
+
+    // Filter the chemicals by the search input
+    const filteredChemicals = chemicals.filter((chem) =>
+        chem.toLowerCase().includes(search.toLowerCase())
+    );
 
     // Skip to content link handler
     function handleSkipToContent(e) {
@@ -84,35 +90,34 @@ export default function ChemicalCategory() {
                 )}
                 {categoryData && (
                     <>
-                        <div className="category-search-row">
-                            <label
-                                htmlFor="chemical-category-search"
-                                className="chemical-category-search-label"
-                            >
-                                Search chemicals in this category </label>
-                            <input
-                                id="chemical-category-search"
-                                className="chemical-category-search"
-                                type="search"
-                                placeholder="Search chemicals in this category..."
-                                value=""
-                                onChange={() => { }}
-                                aria-label="Search chemicals in this category"
-                                autoComplete="off"
-                            // input is present and accessible, but does nothing
-                            />
-                        </div>
+                        <label
+                            htmlFor="chemical-category-search"
+                            className="chemical-category-search-label"
+                        >
+                            Search chemicals in this category
+                        </label>
+                        <input
+                            id="chemical-category-search"
+                            className="chemical-category-search"
+                            type="search"
+                            placeholder="Search chemicals in this category..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            aria-label="Search chemicals in this category"
+                            autoComplete="off"
+                        />
                         <section
                             className="chemical-category-grid"
                             aria-label="Chemicals in this category"
                             aria-live="polite"
                         >
-                            {chemicals.length > 0 ? (
-                                chemicals.map((chem) => (
+                            {filteredChemicals.length > 0 ? (
+                                filteredChemicals.map((chem) => (
                                     <div
                                         className="chemical-category-card"
                                         key={chem}
                                         tabIndex="0"
+                                        role="button"
                                         aria-label={chem}
                                         aria-pressed="false"
                                     >

@@ -84,6 +84,7 @@ const Home = () => (
                 </div>
             </section>
 
+            {/* Services section and background wrapper */}
             <div className="services-bg">
                 <section className="services-section" aria-labelledby="services-heading">
                     <h2 className="services-heading" id="services-heading">
@@ -132,6 +133,7 @@ const Home = () => (
                         </Link>
                     </div>
                 </section>
+                {/* Spacer fills remaining space with services-section background */}
                 <div className="services-spacer" aria-hidden="true"></div>
             </div>
         </main>
