@@ -1,179 +1,32 @@
 [
     {
-        "name": "Acids",
+        "name": "Chemical Category",
         "products": [
-            "Acetic Acid",
-            "Battery Electrolyte",
-            "Boric Acid",
-            "Citric Acid",
-            "Chromic Acid",
-            "Hydrochloric Acid",
-            "Muriatic Acid",
-            "Nitric Acid",
-            "Oxalic Acid",
-            "Phosphoric Acid",
-            "Sulfuric Acid - All Strengths"
+            "Chemical One1"
         ]
     },
     {
-        "name": "Ammonia Compounds",
+        "name": "Chemical Category 2",
         "products": [
-            "Ammonium Chloride",
-            "Ammonium Hydroxide",
-            "Anhydrous Ammonia",
-            "Aqua Ammonia"
+            "Chemical One",
+            "Chemical Two"
         ]
     },
     {
-        "name": "Antifreeze",
+        "name": "Chemical Category 3",
         "products": [
-            "MACH-1 Permanent Antifreeze",
-            "Long-Life Antifreeze",
-            "Inhibited Propylene Glycol",
-            "Heat Transfer Fluids",
-            "Methanol (Tire) Antifreeze"
+            "Chemical One",
+            "Chemical Two",
+            "Chemical Three"
         ]
     },
     {
-        "name": "Caustics",
+        "name": "Chemical Category 4",
         "products": [
-            "Caustic Soda Beads (mini-pearls)",
-            "Caustic Soda Dilutions",
-            "Caustic Potash",
-            "Sodium Hydroxide Solutions",
-            "Sodium Hypochlorite (Bleach)",
-            "Potassium Hydroxide Solutions"
-        ]
-    },
-    {
-        "name": "Phosphates",
-        "products": [
-            "Diammonium Phosphate",
-            "Diacalcium Phosphate",
-            "Disodium Phosphate",
-            "Hexametaphosphate",
-            "Monoammonium Phosphate",
-            "Mono Sodium Phospate",
-            "Potassium Tripolyphosphate",
-            "Trisodium Phosphate",
-            "Sodium Pyrophosphate",
-            "Tripolyphosphate"
-        ]
-    },
-    {
-        "name": "Sodium Compounds",
-        "products": [
-            "Soda Ash (Light & Dense)",
-            "Sodium Acetate",
-            "Sodium Benzoate",
-            "Sodium Bicarbonate (All Grades)",
-            "Sodium Bichromate",
-            "Sodium Bisulfate",
-            "Sodium Bisulfite",
-            "Sodium Carbonate",
-            "Sodium Chloride - Salt (All Grades)",
-            "Sodium Citrate",
-            "Sodium Hydrosulfite",
-            "Sodium Hydroxide: Liquid  - (All Grades & Percentages)",
-            "Sodium Hydroxide: Dry - (Beads, Pearls & Flakes) (Caustic Soda)",
-            "Sodium Hypochlorite",
-            "Sodium Metabisulfite",
-            "Sodium Metasilicate",
-            "Sodium Nitrate",
-            "Sodium Nitrite",
-            "Sodium Orthosilicate",
-            "Sodium Percarbonate",
-            "Sodium Perborate",
-            "Sodium Silicates: Liquid & Dry",
-            "Sodium Sulfate",
-            "Sodium Sulfite"
-        ]
-    },
-    {
-        "name": "Solvents",
-        "products": [
-            "Acetone",
-            "Aromatic",
-            "Ethyl Alcohols",
-            "Ethylene Glycol",
-            "Heptane",
-            "Hexane",
-            "Isopropyl Alcohol",
-            "Methanol",
-            "Methyl Ethyl Ketone (MEK)",
-            "Methylene Chloride",
-            "Mineral Spirits",
-            "Monoethanolamine",
-            "N-Butyl Acetate",
-            "N-Butyl Alcohol",
-            "Toluene",
-            "Triethanolamine 85%, 99%",
-            "VM & P Naptha",
-            "Xylene"
-        ]
-    },
-    {
-        "name": "Water Treatment Chemicals",
-        "products": [
-            "Aluminum Sulfate (Alum): Liquid & Dry",
-            "Aluminum Chloride",
-            "Aluminum Hydroxide",
-            "Ammonium Hydroxide (Aqua Ammonia)",
-            "Anhydrous Ammonia",
-            "Bleach",
-            "Calcium Hypochlorite",
-            "Caustic Soda",
-            "Chlorinating Tablets",
-            "Chlorine",
-            "Chlorine Liquid - Sodium Hypochlorite",
-            "De-chlorination Tablets",
-            "Diatomacious Earth (Celite)",
-            "Ferric Chloride",
-            "Filter Aids",
-            "Filter Powders",
-            "Hydrogen Chloride",
-            "Hydrogen Peroxide",
-            "Magnesium Hydroxide",
-            "Potassium Chloride",
-            "Potassim Hydroxide (Caustic Potash)",
-            "Salt (All Grades: Solar, Pellets, &",
-            "Granulated)",
-            "Sodium Bicarbonate",
-            "Sodium Bisulfite",
-            "Sodium Silicate"
-        ]
-    },
-    {
-        "name": "Miscellaneous",
-        "products": [
-            "Borax",
-            "Boric Acid",
-            "Calcium Carbonate",
-            "Calcium Chloride",
-            "Copper Sulfate",
-            "Ferric Chloride",
-            "Ferrous Sulfate (Copperas)",
-            "Formaldehyde",
-            "Potassium Biatrate (Cream of Tartar)",
-            "Potassium Citrate",
-            "Potassium Hydroxide",
-            "Potassium Permanganate",
-            "Lime",
-            "Oil Dry",
-            "Urea",
-            "Zinc Choride",
-            "Lacquer Thinner",
-            "Celite - Diatomaceous Earth - All Grades",
-            "White/Mineral Oils (50-350 Vis. Tech & USP",
-            "Chiller Thermal Fluid - Closed air conditioning, heating systems and ice skating rinks",
-            "Fast Freeze - Indirect contact freezing of foods and their applications requiring low toxicity - USDA approved",
-            "Frost Guard - Continuous defrosting of refrigeration coils - USDA approved",
-            "Anionic",
-            "Noniconic",
-            "Microcrystalline",
-            "Paraffin Wax",
-            "Paraffin & Slack (Tank Truck - Tank Car)",
-            "Wax Emulsion (Dispersion)"
+            "Chemical One",
+            "Chemical Two",
+            "Chemical Three",
+            "Chemical Four"
         ]
     }
 ]

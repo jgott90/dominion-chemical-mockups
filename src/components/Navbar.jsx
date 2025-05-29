@@ -74,7 +74,7 @@ function Navbar() {
                         <Link to="/" tabIndex={0}>Home</Link>
                     </li>
                     <li>
-                        <Link to="/about" tabIndex={0}>About</Link>
+                        <Link to="/our-story" tabIndex={0}>Our Story</Link>
                     </li>
                     {dropdownMenus.map(({ label, key, items }) => (
                         <li

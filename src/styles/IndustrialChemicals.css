@@ -1,3 +1,4 @@
+/* General page layout */
 .chemicals-page-main {
     max-width: 1200px;
     margin: 0 auto;
@@ -94,6 +95,7 @@
     border: 0;
 }
 
+/* Categories/Results Grid */
 .chemicals-categories {
     display: flex;
     flex-wrap: wrap;
@@ -111,6 +113,7 @@
     min-width: 230px;
     background: none;
     margin-bottom: 1.2em;
+    /* Only keep this for desktop/tablet */
 }
 
 .chemicals-category-link {
@@ -177,6 +180,7 @@
     padding: 18px 0 10px 0;
 }
 
+/* Tablet and below */
 @media (max-width: 900px) {
     .chemicals-categories {
         gap: 18px;
@@ -189,6 +193,7 @@
     }
 }
 
+/* Mobile: Compact and accessible spacing */
 @media (max-width: 650px) {
     .chemicals-page-main {
         padding: 16px 2vw 26px 2vw;
