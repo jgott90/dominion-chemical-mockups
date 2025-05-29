@@ -25,7 +25,7 @@ export default function WaxEmulsions() {
                 <section className="waxemulsions-content">
                     <div className="waxemulsions-img-col">
                         <img
-                            src="/projects/dominion-chemical/images/wax-emulsions.jpg"
+                            src="/images/wax-emulsions.jpg"
                             alt="Waxed board samples"
                             className="waxemulsions-img"
                         />

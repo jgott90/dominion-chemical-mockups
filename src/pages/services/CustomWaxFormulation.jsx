@@ -34,7 +34,11 @@ function CustomWaxFormulation() {
 
             <section className="custom-wax-main">
                 <div className="custom-wax-image-col">
-                    <img src="/projects/dominion-chemical/images/custom-formulation-tank.jpg" alt="Plant Equipment" className="custom-wax-photo" />
+                    <img
+                        src="/projects/dominion-chemical/images/custom-formulation-tank.jpg"
+                        alt="Plant Equipment"
+                        className="custom-wax-photo"
+                    />
                 </div>
                 <div className="custom-wax-info-col">
                     <div className="custom-wax-info-card">
@@ -55,7 +59,7 @@ function CustomWaxFormulation() {
                 </div>
                 <div className="custom-wax-image-col">
                     <img
-                        src="/projects/dominion-chemical/images/custom-wax-formulations-flowchart.jpg"
+                        src="/images/custom-wax-formulations-flowchart.jpg"
                         alt="Process Flow Diagram"
                         className="custom-wax-diagram"
                         onClick={() => setEnlarge(true)}
@@ -98,7 +102,7 @@ function CustomWaxFormulation() {
                         aria-label="Close enlarged process flow diagram"
                     >&times;</button>
                     <img
-                        src="/projects/dominion-chemical/images/custom-wax-formulations-flowchart.jpg"
+                        src="/images/custom-wax-formulations-flowchart.jpg"
                         alt="Enlarged Process Flow Diagram"
                         className="custom-wax-modal-img"
                         onClick={e => e.stopPropagation()}

@@ -35,7 +35,7 @@ const Home = () => (
                         aria-label="Industrial Chemicals"
                     >
                         <img
-                            src="/projects/dominion-chemical/images/industrial-chemicals.jpg"
+                            src="/images/industrial-chemicals.jpg"
                             alt="Industrial Chemicals"
                             loading="lazy"
                             width="320"
@@ -53,7 +53,7 @@ const Home = () => (
                         aria-label="Waxes"
                     >
                         <img
-                            src="/projects/dominion-chemical/images/waxes.jpg"
+                            src="/images/waxes.jpg"
                             alt="Waxes"
                             loading="lazy"
                             width="320"
@@ -71,7 +71,7 @@ const Home = () => (
                         aria-label="Wax Emulsions"
                     >
                         <img
-                            src="/projects/dominion-chemical/images/wax-emulsions.jpg"
+                            src="/images/wax-emulsions.jpg"
                             alt="Wax Emulsions"
                             loading="lazy"
                             width="320"

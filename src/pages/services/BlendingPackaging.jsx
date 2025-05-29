@@ -16,6 +16,12 @@ function BlendingPackaging() {
             <section className="custom-wax-main">
                 <div className="custom-wax-image-col">
                     <img src="/projects/dominion-chemical/images/greer-slabber.jpg" alt="Blending and Packaging Line" className="custom-wax-photo" />
+                    <img
+                        src="/images/greer-slabber.jpg"
+                        alt="Blending and packaging equipment at Dominion Chemical Greer facility"
+                        className="custom-wax-photo"
+                        loading="lazy"
+                    />
                 </div>
                 <div className="custom-wax-info-col">
                     <div className="custom-wax-info-card">
@@ -37,7 +43,12 @@ function BlendingPackaging() {
                     </div>
                 </div>
                 <div className="custom-wax-image-col">
-                    <img src="/projects/dominion-chemical/images/wax-slabs.jpg" alt="Wax Slabber Process" className="custom-wax-photo" />
+                    <img
+                        src="/projects/dominion-chemical/images/wax-slabs.jpg"
+                        alt="Wax slabs produced by the slabber process"
+                        className="custom-wax-photo"
+                        loading="lazy"
+                    />
                 </div>
             </section>
 

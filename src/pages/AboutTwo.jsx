@@ -1,21 +1,21 @@
 import React from "react";
-/*import "../styles/CustomWaxFormulation.css";*/
-import "../styles/About.css";
+import "../styles/CustomWaxFormulation.css";
+import "../styles/abouttwo.css";
 
-function About() {
+function abouttwo() {
     return (
         <div className="custom-wax-bg">
             {/* Hero / Lead */}
-            <section className="about-hero">
-                <h1>About Dominion Chemical</h1>
+            <section className="abouttwo-hero">
+                <h1>abouttwo Dominion Chemical</h1>
                 <p>
                     Dominion Chemical is a trusted provider of specialty chemical solutions, serving industries across the Southern U.S. and beyond. With decades of experience, our company is committed to delivering reliable, high-quality products and services tailored to our customers’ unique needs.
                 </p>
             </section>
 
             {/* 60+ Years of Wax Expertise Blurb */}
-            <section className="about-blurb-section" aria-label="Dominion Chemical Experience and Capabilities">
-                <div className="about-blurb-card">
+            <section className="abouttwo-blurb-section" aria-label="Dominion Chemical Experience and Capabilities">
+                <div className="abouttwo-blurb-card">
                     <h2 className="sr-only">Dominion Chemical Experience and Capabilities</h2>
                     <p>
                         <strong>Wax nuances are our expertise.</strong> With over 60 years of experience in the wax business, Dominion Chemical’s valuable historical expertise offers a rare working knowledge as well as trust and proven abilities to bring solutions, support, and alternatives to provide the exact product you want.
@@ -30,8 +30,8 @@ function About() {
             </section>
 
             {/* Main sections in cards */}
-            <section className="about-main-section">
-                <div className="about-content-card">
+            <section className="abouttwo-main-section">
+                <div className="abouttwo-content-card">
                     <h2>Our Services</h2>
                     <ul>
                         <li>
@@ -49,14 +49,14 @@ function About() {
                     </ul>
                 </div>
 
-                <div className="about-content-card">
+                <div className="abouttwo-content-card">
                     <h2>Quality & Commitment</h2>
                     <p>
                         Our operations are built on a foundation of quality, safety, and customer service. We carefully monitor every production stage with thorough quality control—before, during, and after each batch. Dominion Chemical is dedicated to exceeding customer expectations and building long-term relationships through dependable products and responsive support.
                     </p>
                 </div>
 
-                <div className="about-content-card">
+                <div className="abouttwo-content-card">
                     <h2>Why Choose Us?</h2>
                     <ul>
                         <li>Over 60 years of industry experience</li>
@@ -68,7 +68,7 @@ function About() {
                 </div>
             </section>
 
-            <section className="custom-wax-footer-note about-footer-note">
+            <section className="custom-wax-footer-note abouttwo-footer-note">
                 <p>
                     <em>
                         Dominion Chemical—Ready to meet your specialty chemical, blending, and packaging needs.<br />
@@ -80,4 +80,4 @@ function About() {
     );
 }
 
-export default About;
+export default abouttwo;
