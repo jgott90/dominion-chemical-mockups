@@ -72,7 +72,7 @@ export default function ChemicalCategory() {
                             htmlFor="chemical-category-search"
                             className="chemical-category-search-label"
                         >
-                            Search chemicals in this category
+                            Search chemicals in this cat
                         </label>
                         <input
                             id="chemical-category-search"
