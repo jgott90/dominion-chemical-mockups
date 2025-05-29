@@ -60,7 +60,7 @@ function Navbar() {
         <header className="navbar" role="banner">
             <div className="navbar-left">
                 <span className="logo">
-                    <img src="/dominion-chemical-mockups/images/logo-large.png" alt="Dominion Chemical Logo" />
+                    <img src="/dominion-chemical-mockups/images/logo-small.png" alt="Dominion Chemical Logo" />
                     <span>Dominion Chemical</span>
                 </span>
             </div>
