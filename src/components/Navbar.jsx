@@ -45,8 +45,6 @@ function Navbar() {
             key: "products",
             items: [
                 { to: "/industrial-chemicals", label: "Industrial Chemicals" },
-                /* { to: "", label: "Waxes" },
-                 { to: "", label: "Wax Emulsions" } */
             ]
         },
         {
@@ -54,8 +52,6 @@ function Navbar() {
             key: "services",
             items: [
                 { to: "/custom-wax-formulation", label: "Customized Wax Formulation" },
-                /*  { to: "/", label: "Blending & Packaging" },
-                  { to: "/", label: "Diesel Exhaust Fluid" } */
             ]
         }
     ];
