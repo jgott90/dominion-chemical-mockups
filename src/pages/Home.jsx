@@ -46,7 +46,7 @@ const Home = () => (
                         </div>
                     </Link>
                     <Link
-                        to="/products/waxes"
+                        to="/"
                         className="product-card"
                         role="listitem"
                         tabIndex="0"
@@ -64,7 +64,7 @@ const Home = () => (
                         </div>
                     </Link>
                     <Link
-                        to="/products/wax-emulsions"
+                        to="/"
                         className="product-card"
                         role="listitem"
                         tabIndex="0"
@@ -106,7 +106,7 @@ const Home = () => (
                         </Link>
 
                         <Link
-                            to="/services/blending-packaging"
+                            to="/"
                             className="service-card"
                             role="listitem"
                             tabIndex="0"
@@ -119,7 +119,7 @@ const Home = () => (
                             <p>Custom solutions provided.</p>
                         </Link>
                         <Link
-                            to="/services/diesel-exhaust-fluid"
+                            to="/"
                             className="service-card"
                             role="listitem"
                             tabIndex="0"

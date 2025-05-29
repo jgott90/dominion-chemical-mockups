@@ -123,7 +123,7 @@ body,
 .product-card {
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 2px 14px rgba(37, 99, 235, 0.09);
+    box-shadow: 0 2px 14px #305cde;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -140,7 +140,7 @@ body,
 .product-card:focus,
 .product-card:hover,
 .product-card:focus-visible {
-    outline: 2px solid #2563eb;
+    outline: 3px solid #305cde;
     box-shadow: 0 4px 24px rgba(37, 99, 235, 0.13);
     transform: translateY(-2px) scale(1.03);
     z-index: 2;
@@ -199,7 +199,7 @@ body,
 .service-card {
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 2px 14px rgba(32, 80, 129, 0.09);
+    box-shadow: 0 2px 14px #305cde;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -217,8 +217,8 @@ body,
 .service-card:hover,
 .service-card:focus,
 .service-card:focus-visible {
-    outline: 2px solid #205081;
-    box-shadow: 0 5px 22px rgba(32, 80, 129, 0.15);
+    outline: 2px solid #305cde;
+    box-shadow: 0 5px 22px #305cde;
     transform: translateY(-2px) scale(1.03);
     z-index: 2;
 }

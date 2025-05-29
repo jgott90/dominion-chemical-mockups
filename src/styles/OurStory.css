@@ -56,7 +56,7 @@
     background: #f9fafc;
     border-radius: 14px;
     box-shadow: 0 2px 16px rgba(32, 80, 129, 0.07);
-    border-left: 6px solid #f2c572;
+    border-left: 6px solid #305cde;
     padding: 28px 32px 22px 32px;
     min-width: 270px;
     max-width: 370px;
@@ -65,7 +65,7 @@
 }
 
 .our-story-content-card h2 {
-    color: #d48806;
+    color: #305cde;
     font-size: 1.18em;
     font-weight: 700;
     margin-top: 0;

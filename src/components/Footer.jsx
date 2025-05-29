@@ -18,7 +18,7 @@ const Footer = () => (
                 </p>
             </section>
             <Link
-                to="/contact"
+                to="/"
                 className="footer-contact-btn"
                 aria-label="Contact us online"
             >

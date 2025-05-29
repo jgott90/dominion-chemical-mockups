@@ -45,8 +45,8 @@ function Navbar() {
             key: "products",
             items: [
                 { to: "/products/industrial-chemicals", label: "Industrial Chemicals" },
-                { to: "/products/waxes", label: "Waxes" },
-                { to: "/products/wax-emulsions", label: "Wax Emulsions" }
+                { to: "/", label: "Waxes" },
+                { to: "", label: "Wax Emulsions" }
             ]
         },
         {
@@ -54,8 +54,8 @@ function Navbar() {
             key: "services",
             items: [
                 { to: "/services/custom-wax-formulation", label: "Customized Wax Formulation" },
-                { to: "/services/blending-packaging", label: "Blending & Packaging" },
-                { to: "/services/diesel-exhaust-fluid", label: "Diesel Exhaust Fluid" }
+                { to: "/", label: "Blending & Packaging" },
+                { to: "/", label: "Diesel Exhaust Fluid" }
             ]
         }
     ];
@@ -100,7 +100,7 @@ function Navbar() {
                         </li>
                     ))}
                     <li>
-                        <Link to="/contact" tabIndex={0}>Contact</Link>
+                        <Link to="/" tabIndex={0}>Contact</Link>
                     </li>
                 </ul>
             </nav>
