@@ -64,11 +64,11 @@ export default function ChemicalCategory() {
                             <span aria-hidden="true"> &gt; </span>
                         </li>
                         <li>
-                            <Link to="/products">Products</Link>
+                            <Link to="">Products</Link>
                             <span aria-hidden="true"> &gt; </span>
                         </li>
                         <li>
-                            <Link to="/products/industrial-chemicals">
+                            <Link to="/industrial-chemicals">
                                 Industrial Chemicals
                             </Link>
                             <span aria-hidden="true"> &gt; </span>
@@ -117,7 +117,6 @@ export default function ChemicalCategory() {
                                         className="chemical-category-card"
                                         key={chem}
                                         tabIndex="0"
-                                        role="button"
                                         aria-label={chem}
                                         aria-pressed="false"
                                     >

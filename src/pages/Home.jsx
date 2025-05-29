@@ -13,7 +13,7 @@ const Home = () => (
                     </h1>
                     <p>Supplying quality industrial chemicals for all your needs.</p>
                     <Link
-                        to="/products"
+                        to=""
                         className="explore-button"
                         aria-label="Explore our products"
                     >
@@ -28,7 +28,7 @@ const Home = () => (
                 </h2>
                 <div className="product-grid" role="list">
                     <Link
-                        to="/products/industrial-chemicals"
+                        to="/industrial-chemicals"
                         className="product-card"
                         role="listitem"
                         tabIndex="0"
@@ -46,7 +46,7 @@ const Home = () => (
                         </div>
                     </Link>
                     <Link
-                        to="/"
+                        to=""
                         className="product-card"
                         role="listitem"
                         tabIndex="0"
@@ -64,7 +64,7 @@ const Home = () => (
                         </div>
                     </Link>
                     <Link
-                        to="/"
+                        to=""
                         className="product-card"
                         role="listitem"
                         tabIndex="0"
@@ -92,7 +92,7 @@ const Home = () => (
                     </h2>
                     <div className="services-grid" role="list">
                         <Link
-                            to="/services/custom-wax-formulation"
+                            to="/custom-wax-formulation"
                             className="service-card"
                             role="listitem"
                             tabIndex="0"
@@ -106,7 +106,7 @@ const Home = () => (
                         </Link>
 
                         <Link
-                            to="/"
+                            to=""
                             className="service-card"
                             role="listitem"
                             tabIndex="0"
@@ -119,7 +119,7 @@ const Home = () => (
                             <p>Custom solutions provided.</p>
                         </Link>
                         <Link
-                            to="/"
+                            to=""
                             className="service-card"
                             role="listitem"
                             tabIndex="0"

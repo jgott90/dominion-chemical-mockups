@@ -1,6 +1,82 @@
 import React from "react";
+import { MapContainer, TileLayer, Marker, Tooltip, ZoomControl } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import "../styles/CustomWaxFormulation.css";
 import "../styles/ourstory.css";
+
+// Custom star SVG marker
+const starIcon = new L.DivIcon({
+    html: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" aria-hidden="true" focusable="false" viewBox="0 0 32 32"><polygon points="16,2 20,12 31,12 22,19 25,30 16,24 7,30 10,19 1,12 12,12" fill="#f4b400" stroke="#223" stroke-width="2"/></svg>`,
+    className: "",
+    iconSize: [32, 32],
+    iconAnchor: [16, 24],
+    popupAnchor: [0, -24],
+});
+
+const LOCATIONS = [
+    {
+        name: "Petersburg, VA",
+        position: [37.2279, -77.4019],
+        desc: "Corporate HQ, blending, packaging, and R&D",
+    },
+    {
+        name: "Albany, GA",
+        position: [31.5785, -84.1557],
+        desc: "Bulk storage, logistics, and distribution",
+    },
+];
+
+function LocationsMap() {
+    return (
+        <div className="our-story-map-section" aria-label="Dominion Chemical Locations">
+            <h2 className="our-story-map-title">Our Locations</h2>
+            <div
+                className="our-story-map-wrapper"
+                role="region"
+                aria-label="Map showing locations in Petersburg, VA and Albany, GA"
+            >
+                <MapContainer
+                    center={[35.5, -85]}
+                    zoom={5}
+                    minZoom={3}
+                    maxZoom={8}
+                    scrollWheelZoom={false}
+                    style={{ width: "100%", height: "260px", borderRadius: "14px" }}
+                    zoomControl={false}
+                    aria-label="US map with company locations"
+                >
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <ZoomControl position="topright" />
+                    {LOCATIONS.map(loc => (
+                        <Marker key={loc.name} position={loc.position} icon={starIcon}>
+                            <Tooltip direction="top" offset={[0, -18]} permanent={true} className="map-tooltip" opacity={1}>
+                                {loc.name}
+                            </Tooltip>
+                        </Marker>
+                    ))}
+                </MapContainer>
+                <div id="map-desc" className="sr-only">
+                    Interactive map of the United States with stars indicating Petersburg, Virginia and Albany, Georgia.
+                </div>
+            </div>
+            <div className="our-story-locations-list" aria-label="List of site locations">
+                {LOCATIONS.map(loc => (
+                    <div className="our-story-location" key={loc.name}>
+                        <span className="our-story-location-dot" aria-hidden="true"></span>
+                        <span className="our-story-location-label">
+                            <strong>{loc.name}</strong> – {loc.desc}
+                        </span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
 function OurStory() {
     return (
         <div className="custom-wax-bg">
@@ -11,7 +87,6 @@ function OurStory() {
                     Dominion Chemical is a trusted provider of specialty chemical solutions, serving industries across the Southern U.S. and beyond. With decades of experience, our company is committed to delivering reliable, high-quality products and services tailored to our customers’ unique needs.
                 </p>
             </section>
-
             {/* 60+ Years of Wax Expertise Blurb */}
             <section className="our-story-blurb-section" aria-label="Dominion Chemical Experience and Capabilities">
                 <div className="our-story-blurb-card">
@@ -27,7 +102,8 @@ function OurStory() {
                     </p>
                 </div>
             </section>
-
+            {/* Locations Section */}
+            <LocationsMap />
             {/* Main sections in cards */}
             <section className="our-story-main-section">
                 <div className="our-story-content-card">
@@ -47,14 +123,12 @@ function OurStory() {
                         </li>
                     </ul>
                 </div>
-
                 <div className="our-story-content-card">
                     <h2>Quality & Commitment</h2>
                     <p>
                         Our operations are built on a foundation of quality, safety, and customer service. We carefully monitor every production stage with thorough quality control—before, during, and after each batch. Dominion Chemical is dedicated to exceeding customer expectations and building long-term relationships through dependable products and responsive support.
                     </p>
                 </div>
-
                 <div className="our-story-content-card">
                     <h2>Why Choose Us?</h2>
                     <ul>
@@ -66,7 +140,6 @@ function OurStory() {
                     </ul>
                 </div>
             </section>
-
             <section className="custom-wax-footer-note our-story-footer-note">
                 <p>
                     <em>

@@ -22,10 +22,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/Our-Story" element={<OurStory />} />
-        <Route path="/products" element={<Navigate to="/products/industrial-chemicals" replace />} />
-        <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
-        <Route path="/products/industrial-chemicals/:category" element={<ChemicalsCategory />} />
-        <Route path="/services/custom-wax-formulation" element={<CustomWaxFormulation />} />
+
+        <Route path="/industrial-chemicals" element={<IndustrialChemicals />} />
+        <Route path="/industrial-chemicals/:category" element={<ChemicalsCategory />} />
+        <Route path="/custom-wax-formulation" element={<CustomWaxFormulation />} />
       </Routes>
       <Footer />
     </>

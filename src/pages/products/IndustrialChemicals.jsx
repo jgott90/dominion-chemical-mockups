@@ -69,7 +69,7 @@ export default function IndustrialChemicals() {
                             <span aria-hidden="true"> &gt; </span>
                         </li>
                         <li>
-                            <Link to="/products">Products</Link>
+                            <Link to="">Products</Link>
                             <span aria-hidden="true"> &gt; </span>
                         </li>
                         <li aria-current="page">Industrial Chemicals</li>
@@ -102,7 +102,7 @@ export default function IndustrialChemicals() {
                         filteredCategories.map((category) => (
                             <div className="chemicals-category-block" key={category.name}>
                                 <Link
-                                    to={`/products/industrial-chemicals/${slugify(category.name)}`}
+                                    to={`/industrial-chemicals/${slugify(category.name)}`}
                                     className="chemicals-category-link"
                                     aria-label={`View ${category.name} category`}
                                     tabIndex="0"

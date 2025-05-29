@@ -44,18 +44,18 @@ function Navbar() {
             label: "Products",
             key: "products",
             items: [
-                { to: "/products/industrial-chemicals", label: "Industrial Chemicals" },
-                { to: "/", label: "Waxes" },
-                { to: "", label: "Wax Emulsions" }
+                { to: "/industrial-chemicals", label: "Industrial Chemicals" },
+                /* { to: "", label: "Waxes" },
+                 { to: "", label: "Wax Emulsions" } */
             ]
         },
         {
             label: "Services",
             key: "services",
             items: [
-                { to: "/services/custom-wax-formulation", label: "Customized Wax Formulation" },
-                { to: "/", label: "Blending & Packaging" },
-                { to: "/", label: "Diesel Exhaust Fluid" }
+                { to: "/custom-wax-formulation", label: "Customized Wax Formulation" },
+                /*  { to: "/", label: "Blending & Packaging" },
+                  { to: "/", label: "Diesel Exhaust Fluid" } */
             ]
         }
     ];
@@ -111,11 +111,11 @@ function Navbar() {
                 <input
                     id="navbar-search-input"
                     type="text"
-                    placeholder="Search for chemicals..."
+                    placeholder="Search..."
                     value={searchQueryLocal}
                     onChange={(e) => setSearchQueryLocal(e.target.value)}
                     autoComplete="off"
-                    aria-label="Search for chemicals"
+                    aria-label="Search"
                 />
                 <button type="submit" aria-label="Submit search">Go</button>
             </form>
