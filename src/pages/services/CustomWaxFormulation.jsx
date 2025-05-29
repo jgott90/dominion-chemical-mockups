@@ -23,41 +23,10 @@ function CustomWaxFormulation() {
         }
     }, [enlarge]);
 
-    // Trap focus inside modal when open for accessibility
-    useEffect(() => {
-        if (!enlarge) return;
-
-        function trapFocus(e) {
-            const focusableElements = modalRef.current.querySelectorAll(
-                'button, [tabindex]:not([tabindex="-1"])'
-            );
-            if (!focusableElements.length) return;
-
-            const first = focusableElements[0];
-            const last = focusableElements[focusableElements.length - 1];
-            if (e.key === "Tab") {
-                if (e.shiftKey) {
-                    if (document.activeElement === first) {
-                        e.preventDefault();
-                        last.focus();
-                    }
-                } else {
-                    if (document.activeElement === last) {
-                        e.preventDefault();
-                        first.focus();
-                    }
-                }
-            }
-        }
-
-        modalRef.current?.addEventListener("keydown", trapFocus);
-        return () => modalRef.current?.removeEventListener("keydown", trapFocus);
-    }, [enlarge]);
-
     return (
         <div className="custom-wax-bg">
             <section className="custom-wax-hero">
-                <h1 tabIndex="-1">Customized Wax Formulations</h1>
+                <h1>Customized Wax Formulations</h1>
                 <p>
                     The cornerstone of our business is creating tailored wax solutions for your unique application and needs.
                 </p>
@@ -65,11 +34,7 @@ function CustomWaxFormulation() {
 
             <section className="custom-wax-main">
                 <div className="custom-wax-image-col">
-                    <img
-                        src="/projects/dominion-chemical/images/custom-formulation-tank.jpg"
-                        alt="Plant Equipment"
-                        className="custom-wax-photo"
-                    />
+                    <img src="/projects/dominion-chemical/images/custom-formulation-tank.jpg" alt="Plant Equipment" className="custom-wax-photo" />
                 </div>
                 <div className="custom-wax-info-col">
                     <div className="custom-wax-info-card">
@@ -77,8 +42,7 @@ function CustomWaxFormulation() {
                         <p>
                             <strong>
                                 The most important business decision you must make is determining the products used in your production.
-                            </strong>
-                            <br />
+                            </strong><br />
                             We understand how difficult this decision can be and are available to help you.
                         </p>
                         <p>
@@ -125,7 +89,6 @@ function CustomWaxFormulation() {
                     tabIndex={-1}
                     aria-modal="true"
                     role="dialog"
-                    aria-label="Enlarged Process Flow Diagram"
                     ref={modalRef}
                 >
                     <button

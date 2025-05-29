@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import industrialChemicalsData from "../../data/industrialChemicals.json";
-import "../../styles/CustomWaxFormulation.css";
-import "../../styles/ChemicalCategory.css";
+import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
+import "../../styles/IndustrialChemicals.css";
 
 // Converts category name to URL slug (e.g., "Water Treatment Chemicals" -> "water-treatment-chemicals")
 function slugify(str) {
@@ -12,28 +12,15 @@ function slugify(str) {
         .replace(/(^-|-$)+/g, "");
 }
 
-export default function ChemicalCategory() {
-    const { category } = useParams();
+export default function IndustrialChemicals() {
     const [search, setSearch] = useState("");
     const mainHeadingRef = useRef(null);
 
-    // Focus h1 on mount for screen reader users
     useEffect(() => {
         if (mainHeadingRef.current) {
             mainHeadingRef.current.focus();
         }
-    }, [category]);
-
-    // Find the category in the JSON data using the slugified name
-    const categoryData = industrialChemicalsData.find(
-        (cat) => slugify(cat.name) === category
-    );
-    const chemicals = categoryData ? categoryData.products : [];
-
-    // Filter the chemicals by the search input
-    const filteredChemicals = chemicals.filter((chem) =>
-        chem.toLowerCase().includes(search.toLowerCase())
-    );
+    }, []);
 
     // Skip to content link handler
     function handleSkipToContent(e) {
@@ -42,6 +29,27 @@ export default function ChemicalCategory() {
             mainHeadingRef.current.focus();
         }
     }
+
+    // Enhanced filtering: show categories that match the search or have chemicals matching the search
+    const filteredCategories = industrialChemicalsData
+        .map(category => {
+            const catMatch = category.name.toLowerCase().includes(search.toLowerCase());
+            // Products are strings, so check them directly
+            const matchingChemicals = Array.isArray(category.products)
+                ? category.products.filter(chem =>
+                    typeof chem === "string" &&
+                    chem.toLowerCase().includes(search.toLowerCase())
+                )
+                : [];
+            if (!search || catMatch || matchingChemicals.length > 0) {
+                return {
+                    ...category,
+                    matchingChemicals: search ? matchingChemicals : category.products
+                };
+            }
+            return null;
+        })
+        .filter(Boolean);
 
     return (
         <>
@@ -53,11 +61,8 @@ export default function ChemicalCategory() {
             >
                 Skip to main content
             </a>
-            <main className="chemical-category-main" id="main-content">
-                <nav
-                    className="chemical-category-breadcrumbs"
-                    aria-label="Breadcrumb"
-                >
+            <main className="chemicals-page-main" id="main-content">
+                <nav aria-label="Breadcrumb" className="chemicals-breadcrumbs">
                     <ol>
                         <li>
                             <Link to="/">Home</Link>
@@ -67,78 +72,71 @@ export default function ChemicalCategory() {
                             <Link to="/products">Products</Link>
                             <span aria-hidden="true"> &gt; </span>
                         </li>
-                        <li>
-                            <Link to="/products/industrial-chemicals">
-                                Industrial Chemicals
-                            </Link>
-                            <span aria-hidden="true"> &gt; </span>
-                        </li>
-                        <li aria-current="page">
-                            {categoryData ? categoryData.name : "Category Not Found"}
-                        </li>
+                        <li aria-current="page">Industrial Chemicals</li>
                     </ol>
                 </nav>
-                <h1
-                    className="chemical-category-title"
-                    tabIndex="-1"
-                    ref={mainHeadingRef}
-                >
-                    {categoryData ? categoryData.name : "Category Not Found"}
+                <h1 className="chemicals-title" tabIndex="-1" ref={mainHeadingRef}>
+                    Industrial Chemicals Categories
                 </h1>
-                {categoryData && categoryData.description && (
-                    <p className="chemical-category-desc">{categoryData.description}</p>
-                )}
-                {categoryData && (
-                    <>
-                        <label
-                            htmlFor="chemical-category-search"
-                            className="chemical-category-search-label"
-                        >
-                            Search chemicals in this category
-                        </label>
-                        <input
-                            id="chemical-category-search"
-                            className="chemical-category-search"
-                            type="search"
-                            placeholder="Search chemicals in this category..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            aria-label="Search chemicals in this category"
-                            autoComplete="off"
-                        />
-                        <section
-                            className="chemical-category-grid"
-                            aria-label="Chemicals in this category"
-                            aria-live="polite"
-                        >
-                            {filteredChemicals.length > 0 ? (
-                                filteredChemicals.map((chem) => (
-                                    <div
-                                        className="chemical-category-card"
-                                        key={chem}
-                                        tabIndex="0"
-                                        role="button"
-                                        aria-label={chem}
-                                        aria-pressed="false"
-                                    >
-                                        <span className="chemical-category-chem-name">
-                                            {chem}
+                <p className="chemicals-desc">
+                    Explore our range of industrial chemical categories. Select a category to view available products and details.
+                </p>
+                <label className="sr-only" htmlFor="chemicals-search">
+                    Search chemical categories or chemicals
+                </label>
+                <input
+                    id="chemicals-search"
+                    className="chemicals-search"
+                    type="search"
+                    placeholder="Search chemical categories or chemicals..."
+                    value={search}
+                    onChange={e => setSearch(e.target.value)}
+                    aria-label="Search chemical categories or chemicals"
+                    autoComplete="off"
+                />
+                <nav
+                    className="chemicals-categories"
+                    aria-label="Chemical Categories"
+                >
+                    {filteredCategories.length > 0 ? (
+                        filteredCategories.map((category) => (
+                            <div className="chemicals-category-block" key={category.name}>
+                                <Link
+                                    to={`/products/industrial-chemicals/${slugify(category.name)}`}
+                                    className="chemicals-category-link"
+                                    aria-label={`View ${category.name} category`}
+                                    tabIndex="0"
+                                >
+                                    <span className="chemicals-category-title">
+                                        {category.name}
+                                    </span>
+                                    <span className="chemicals-category-count">
+                                        {category.products?.length || 0} chemicals
+                                    </span>
+                                    {category.description && (
+                                        <span className="chemicals-category-shortdesc">
+                                            {category.description}
                                         </span>
-                                    </div>
-                                ))
-                            ) : (
-                                <div className="chemical-category-none" role="status">
-                                    No chemicals found.
-                                </div>
-                            )}
-                        </section>
-                    </>
-                )}
-                {!categoryData && (
-                    <div className="chemical-category-none" role="status">
-                        Sorry, this category does not exist.
-                    </div>
-                )}
+                                    )}
+                                </Link>
+                                {/* If searching, show matching chemicals under each category */}
+                                {search && category.matchingChemicals && category.matchingChemicals.length > 0 && (
+                                    <ul className="chemicals-matching-list" aria-label={`Matching chemicals in ${category.name}`}>
+                                        {category.matchingChemicals.map((chem) => (
+                                            <li key={chem}>
+                                                <span className="chemicals-matching-chem">{chem}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        ))
+                    ) : (
+                        <div className="chemicals-none" role="status">
+                            No categories or chemicals found.
+                        </div>
+                    )}
+                </nav>
             </main>
         </>
     );

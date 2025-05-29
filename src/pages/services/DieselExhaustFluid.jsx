@@ -1,12 +1,12 @@
 import React from "react";
-import "../../styles/CustomWaxFormulation.css"; // Reuse style for consistency!
+import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
 import "../../styles/DieselExhaustFluid.css";    // DEF-specific styles
 
 function DieselExhaustFluid() {
     return (
         <div className="custom-wax-bg">
             <section className="custom-wax-hero">
-                <h1 tabIndex="-1">Diesel Exhaust Fluid (DEF) Distributor</h1>
+                <h1>Diesel Exhaust Fluid (DEF) Distributor</h1>
                 <p>
                     Certified DEF for SCR-equipped diesel vehicles and equipment—safe, reliable, and available in the quantities you need.
                 </p>
@@ -57,13 +57,13 @@ function DieselExhaustFluid() {
                         <caption className="sr-only">Miles of service per gallon of DEF by vehicle MPG and DEF usage rate</caption>
                         <thead>
                             <tr>
-                                <th rowSpan={2} scope="col">Vehicle MPG</th>
-                                <th colSpan={3} scope="colgroup">DEF usage as % of fuel consumption</th>
+                                <th rowSpan={2}>Vehicle MPG</th>
+                                <th colSpan={3}>DEF usage as % of fuel consumption</th>
                             </tr>
                             <tr>
-                                <th scope="col">1%</th>
-                                <th scope="col">2%</th>
-                                <th scope="col">3%</th>
+                                <th>1%</th>
+                                <th>2%</th>
+                                <th>3%</th>
                             </tr>
                         </thead>
                         <tbody>
