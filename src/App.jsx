@@ -22,7 +22,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Navigate to="/products/industrialchemicals" replace />} />
+        <Route path="/products" element={<Navigate to="/products/industrial-chemicals" replace />} />
         <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
         <Route path="/products/industrial-chemicals/:category" element={<ChemicalsCategory />} />
         <Route path="/services/custom-wax-formulation" element={<CustomWaxFormulation />} />
