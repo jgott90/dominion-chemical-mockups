@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 
 // Lazy loaded page components
 const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
 const IndustrialChemicals = lazy(() => import("./pages/products/IndustrialChemicals"));
 const ChemicalsCategory = lazy(() => import("./pages/products/ChemicalCategory"));
 const WaxEmulsions = lazy(() => import("./pages/products/WaxEmulsions"));
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/products" element={<Navigate to="/products/industrialchemicals" replace />} />
         <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
         <Route path="/products/industrial-chemicals/:category" element={<ChemicalsCategory />} />
