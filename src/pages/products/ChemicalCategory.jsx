@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import industrialChemicalsData from "../../data/industrialChemicals.json";
 import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
 import "../../styles/ChemicalCategory.css";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 // Converts category name to URL slug (e.g., "Water Treatment Chemicals" -> "water-treatment-chemicals")
 function slugify(str) {
@@ -54,30 +55,7 @@ export default function ChemicalCategory() {
                 Skip to main content
             </a>
             <main className="chemical-category-main" id="main-content">
-                <nav
-                    className="chemical-category-breadcrumbs"
-                    aria-label="Breadcrumb"
-                >
-                    <ol>
-                        <li>
-                            <Link to="/">Home</Link>
-                            <span aria-hidden="true"> &gt; </span>
-                        </li>
-                        <li>
-                            <Link to="">Products</Link>
-                            <span aria-hidden="true"> &gt; </span>
-                        </li>
-                        <li>
-                            <Link to="/industrial-chemicals">
-                                Industrial Chemicals
-                            </Link>
-                            <span aria-hidden="true"> &gt; </span>
-                        </li>
-                        <li aria-current="page">
-                            {categoryData ? categoryData.name : "Category Not Found"}
-                        </li>
-                    </ol>
-                </nav>
+                <Breadcrumbs />
                 <h1
                     className="chemical-category-title"
                     tabIndex="-1"

@@ -100,7 +100,7 @@ function Navbar() {
                         </li>
                     ))}
                     <li>
-                        <Link to="/" tabIndex={0}>Contact</Link>
+                        <Link to="" tabIndex={0}>Contact</Link>
                     </li>
                 </ul>
             </nav>

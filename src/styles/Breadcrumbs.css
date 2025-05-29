@@ -1,0 +1,48 @@
+.breadcrumbs {
+    width: 100%;
+    padding: 12px 16px 0 16px;
+    background: none;
+    font-size: 1rem;
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #888;
+}
+
+.breadcrumbs li {
+    display: flex;
+    align-items: center;
+    color: #305cde;
+}
+
+.breadcrumbs li:not(:first-child)::before {
+    content: "›";
+    color: #bbb;
+    margin: 0 0.5em;
+    font-size: 1em;
+}
+
+.breadcrumbs a {
+    color: #305cde;
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
+    text-decoration: underline;
+    outline: 2px solid #305cde33;
+    outline-offset: 2px;
+}
+
+.breadcrumbs [aria-current="page"] {
+    color: #222;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: default;
+}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import industrialChemicalsData from "../../data/industrialChemicals.json";
 import "../../styles/CustomWaxFormulation.css"; // For shared layout/styles
 import "../../styles/IndustrialChemicals.css";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 // Converts category name to URL slug (e.g., "Water Treatment Chemicals" -> "water-treatment-chemicals")
 function slugify(str) {
@@ -62,19 +63,7 @@ export default function IndustrialChemicals() {
                 Skip to main content
             </a>
             <main className="chemicals-page-main" id="main-content">
-                <nav aria-label="Breadcrumb" className="chemicals-breadcrumbs">
-                    <ol>
-                        <li>
-                            <Link to="/">Home</Link>
-                            <span aria-hidden="true"> &gt; </span>
-                        </li>
-                        <li>
-                            <Link to="">Products</Link>
-                            <span aria-hidden="true"> &gt; </span>
-                        </li>
-                        <li aria-current="page">Industrial Chemicals</li>
-                    </ol>
-                </nav>
+                <Breadcrumbs />
                 <h1 className="chemicals-title" tabIndex="-1" ref={mainHeadingRef}>
                     Industrial Chemicals Categories
                 </h1>

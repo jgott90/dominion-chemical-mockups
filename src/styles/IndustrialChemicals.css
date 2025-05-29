@@ -5,8 +5,10 @@
     padding: 32px 4vw 36px 4vw;
     background: #f9fafb;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 
+/* Skip to main content link */
 .skip-link {
     position: absolute;
     left: -9999px;
@@ -31,26 +33,9 @@
     transition: left 0.2s, top 0.2s;
 }
 
-.chemicals-breadcrumbs {
-    margin-bottom: 18px;
-    font-size: 1em;
-    color: #2563eb;
-}
+/* Breadcrumbs: now handled globally with Breadcrumbs component and Breadcrumbs.css */
 
-.chemicals-breadcrumbs ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.chemicals-breadcrumbs li {
-    display: flex;
-    align-items: center;
-}
-
+/* Page Title / Description */
 .chemicals-title {
     font-size: 2em;
     font-weight: 800;
@@ -65,6 +50,7 @@
     margin-bottom: 26px;
 }
 
+/* Search input */
 .chemicals-search {
     width: 100%;
     max-width: 400px;
@@ -84,6 +70,7 @@
     outline: 2px solid #2563eb;
 }
 
+/* Visually hidden (screen reader only) */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -113,7 +100,6 @@
     min-width: 230px;
     background: none;
     margin-bottom: 1.2em;
-    /* Only keep this for desktop/tablet */
 }
 
 .chemicals-category-link {
@@ -162,6 +148,7 @@
     margin-top: 3px;
 }
 
+/* Matching chemicals on search */
 .chemicals-matching-list {
     margin: 0.6em 0 0.7em 1.5em;
     padding: 0;
@@ -174,13 +161,14 @@
     font-size: 0.96em;
 }
 
+/* Empty/none state */
 .chemicals-none {
     font-size: 1.14em;
     color: #b91c1c;
     padding: 18px 0 10px 0;
 }
 
-/* Tablet and below */
+/* Responsive Design */
 @media (max-width: 900px) {
     .chemicals-categories {
         gap: 18px;
@@ -193,7 +181,6 @@
     }
 }
 
-/* Mobile: Compact and accessible spacing */
 @media (max-width: 650px) {
     .chemicals-page-main {
         padding: 16px 2vw 26px 2vw;

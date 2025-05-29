@@ -4,8 +4,9 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "../styles/CustomWaxFormulation.css";
 import "../styles/ourstory.css";
+import Breadcrumbs from "../components/Breadcrumbs";
 
-// Custom star SVG marker
+// Custom star SVG marker for map
 const starIcon = new L.DivIcon({
     html: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" aria-hidden="true" focusable="false" viewBox="0 0 32 32"><polygon points="16,2 20,12 31,12 22,19 25,30 16,24 7,30 10,19 1,12 12,12" fill="#f4b400" stroke="#223" stroke-width="2"/></svg>`,
     className: "",
@@ -80,6 +81,7 @@ function LocationsMap() {
 function OurStory() {
     return (
         <div className="custom-wax-bg">
+            <Breadcrumbs />
             {/* Hero / Lead */}
             <section className="our-story-hero">
                 <h1>Our Story</h1>

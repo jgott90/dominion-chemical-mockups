@@ -34,7 +34,6 @@
 .chemical-category-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* 3 columns for desktop */
     gap: 1.2rem 1.2rem;
     margin-bottom: 2.7rem;
     background: #f7fafd;
@@ -72,6 +71,9 @@
     grid-column: 1 / -1;
 }
 
+/* Breadcrumbs are now handled by the global Breadcrumbs component and its CSS */
+
+/* Responsive Design */
 @media (max-width: 900px) {
     .chemical-category-grid {
         grid-template-columns: repeat(2, 1fr);

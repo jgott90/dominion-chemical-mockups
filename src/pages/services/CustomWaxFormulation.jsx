@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Breadcrumbs from "../../components/Breadcrumbs";
 import "../../styles/CustomWaxFormulation.css";
 
 function CustomWaxFormulation() {
@@ -25,6 +26,7 @@ function CustomWaxFormulation() {
 
     return (
         <div className="custom-wax-bg">
+            <Breadcrumbs />
             <section className="custom-wax-hero">
                 <h1>Customized Wax Formulations</h1>
                 <p>
