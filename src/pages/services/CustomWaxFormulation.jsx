@@ -35,7 +35,7 @@ function CustomWaxFormulation() {
             <section className="custom-wax-main">
                 <div className="custom-wax-image-col">
                     <img
-                        src="/projects/dominion-chemical/images/custom-formulation-tank.jpg"
+                        src="/images/custom-formulation-tank.jpg"
                         alt="Plant Equipment"
                         className="custom-wax-photo"
                     />

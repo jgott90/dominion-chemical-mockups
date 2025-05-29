@@ -10,7 +10,6 @@ const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const IndustrialChemicals = lazy(() => import("./pages/products/IndustrialChemicals"));
 const ChemicalsCategory = lazy(() => import("./pages/products/ChemicalCategory"));
-const WaxEmulsions = lazy(() => import("./pages/products/WaxEmulsions"));
 const CustomWaxFormulation = lazy(() => import("./pages/services/CustomWaxFormulation"));
 
 
@@ -26,7 +25,6 @@ function App() {
         <Route path="/products" element={<Navigate to="/products/industrialchemicals" replace />} />
         <Route path="/products/industrial-chemicals" element={<IndustrialChemicals />} />
         <Route path="/products/industrial-chemicals/:category" element={<ChemicalsCategory />} />
-        <Route path="/products/wax-emulsions" element={<WaxEmulsions />} />
         <Route path="/services/custom-wax-formulation" element={<CustomWaxFormulation />} />
       </Routes>
       <Footer />
