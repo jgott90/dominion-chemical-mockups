@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Redirecting… | Dominion Chemical Mockups</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="0; url=/dominion-chemical-mockups/" />
+    <style>
+        body {
+            font-family: system-ui, Arial, sans-serif;
+            color: #222;
+            background: #f8f8f8;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 2rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            max-width: 350px;
+            width: 100%;
+            text-align: center;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.25rem 0.5rem;
+            }
+        }
+    </style>
+    <script>
+        // GitHub Pages SPA redirect for React Router (BrowserRouter)
+        // Adapted from https://github.com/rafgraph/spa-github-pages
+        (function () {
+            var l = window.location;
+            var path = l.pathname.replace(/^\/dominion-chemical-mockups/, "");
+            if (path && path !== "/" && path !== "/404.html") {
+                sessionStorage.redirect = path + l.search + l.hash;
+            }
+            // Always redirect to root for SPA entry
+            window.location.replace("/dominion-chemical-mockups/");
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="container" role="main">
+        <h1>Redirecting…</h1>
+        <p>
+            If you are not redirected, <a href="/dominion-chemical-mockups/">click here to go to Dominion Chemical
+                Mockups</a>.
+        </p>
+        <noscript>
+            <p>
+                JavaScript is required for routing. Please enable JavaScript and refresh the page.
+            </p>
+        </noscript>
+    </div>
+</body>
+
+</html>
