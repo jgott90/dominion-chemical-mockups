@@ -9,7 +9,7 @@ const Home = () => (
                 <div className="hero-bg" aria-hidden="true"></div>
                 <div className="hero-content">
                     <h1 id="hero-title" tabIndex={-1}>
-                        Test Your Trusted Partner in Chemical Solutions
+                        Your Trusted Partner in Chemical Solutions
                     </h1>
                     <p>Supplying quality industrial chemicals for all your needs.</p>
                     <Link
