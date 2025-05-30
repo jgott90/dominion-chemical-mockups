@@ -1,3 +1,4 @@
+<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,25 +13,13 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="robots" content="index, follow" />
     <link rel="icon" href="/favicon.ico" />
-    <!-- SPA redirect for GitHub Pages (BrowserRouter) -->
-    <script>
-        if (sessionStorage.redirect) {
-            const redirect = sessionStorage.redirect;
-            delete sessionStorage.redirect;
-            if (redirect && redirect !== location.pathname) {
-                history.replaceState(null, null, redirect);
-            }
-        }
-    </script>
+    <!-- Optional: Manifest for PWA -->
+    <!-- <link rel="manifest" href="/manifest.json" /> -->
 </head>
 
 <body>
-    <noscript>
-        <div style="margin:2rem;text-align:center;color:#b00;font-size:1.1rem;">
-            JavaScript is required to use this site. Please enable it in your browser settings.
-        </div>
-    </noscript>
     <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>

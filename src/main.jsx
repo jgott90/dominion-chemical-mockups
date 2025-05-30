@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { SearchProvider } from './context/SearchContext'; // update path if different
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/dominion-chemical-mockups">
-      <App />
+      <SearchProvider>
+        <App />
+      </SearchProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode >
 );

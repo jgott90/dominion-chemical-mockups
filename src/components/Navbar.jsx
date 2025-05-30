@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-/*import { SearchContext } from "../context/SearchContext";*/
+import { SearchContext } from "../context/SearchContext";
 import "../styles/Navbar.css";
 
 function Navbar() {
@@ -45,6 +45,8 @@ function Navbar() {
             key: "products",
             items: [
                 { to: "/industrial-chemicals", label: "Industrial Chemicals" },
+                /* { to: "", label: "Waxes" },
+                 { to: "", label: "Wax Emulsions" } */
             ]
         },
         {
@@ -52,6 +54,8 @@ function Navbar() {
             key: "services",
             items: [
                 { to: "/custom-wax-formulation", label: "Customized Wax Formulation" },
+                /*  { to: "/", label: "Blending & Packaging" },
+                  { to: "/", label: "Diesel Exhaust Fluid" } */
             ]
         }
     ];
@@ -60,7 +64,7 @@ function Navbar() {
         <header className="navbar" role="banner">
             <div className="navbar-left">
                 <span className="logo">
-                    <img src="/dominion-chemical-mockups/images/logo-small.png" alt="Dominion Chemical Logo" />
+                    <img src="/images/logo-small.png" alt="Dominion Chemical Logo" />
                     <span>Dominion Chemical</span>
                 </span>
             </div>
@@ -96,7 +100,7 @@ function Navbar() {
                         </li>
                     ))}
                     <li>
-                        <Link to="" tabIndex={0}>Contact</Link>
+                        <Link to="/" tabIndex={0}>Contact</Link>
                     </li>
                 </ul>
             </nav>

@@ -1,15 +1,17 @@
 {
-  "name": "dominion-chemical-frontend",
+  "name": "dominion-chemical",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://jgott90.github.io/dominion-chemical-mockups",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "postbuild": "cp dist/index.html dist/404.html"
   },
   "dependencies": {
     "fuse.js": "^7.1.0",
