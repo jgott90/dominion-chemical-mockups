@@ -66,8 +66,8 @@ function Navbar() {
                 <span className="logo">
 
                     <img
-                        src="/dominion-chemical-mockups/images/industrial-chemicals.jpg"
-                        alt="Industrial Chemicals"
+                        src="/dominion-chemical-mockups/images/logo-small.png"
+                        alt="Logo"
                     />
                     <span>Dominion Chemical</span>
                 </span>
