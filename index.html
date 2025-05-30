@@ -1,4 +1,3 @@
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +12,8 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="robots" content="index, follow" />
     <link rel="icon" href="/favicon.ico" />
+    <!-- SPA redirect for GitHub Pages (BrowserRouter) -->
     <script>
-        // Handles redirect after refresh (for SPA on GitHub Pages)
         if (sessionStorage.redirect) {
             const redirect = sessionStorage.redirect;
             delete sessionStorage.redirect;
@@ -27,7 +26,13 @@
 </head>
 
 <body>
+    <noscript>
+        <div style="margin:2rem;text-align:center;color:#b00;font-size:1.1rem;">
+            JavaScript is required to use this site. Please enable it in your browser settings.
+        </div>
+    </noscript>
     <div id="root"></div>
+    <!-- Vite will inject hashed JS and CSS assets automatically at build time -->
     <script type="module" src="/src/main.jsx"></script>
 </body>
 

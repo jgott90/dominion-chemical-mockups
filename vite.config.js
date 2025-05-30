@@ -1,14 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: '/dominion-chemical-mockups/', // Trailing slash is important for correct asset paths!
+  base: '/dominion-chemical-mockups/', // <--- Trailing slash is important
   plugins: [react()],
-  server: {
-    open: true, // Automatically open the site on launch
-  },
-  css: {
-    postcss: './postcss.config.js',
-  },
+  server: { open: true },
+  css: { postcss: './postcss.config.js' },
 })

@@ -43,15 +43,12 @@
         }
     </style>
     <script>
-        // GitHub Pages SPA redirect for React Router (BrowserRouter)
-        // Adapted from https://github.com/rafgraph/spa-github-pages
         (function () {
             var l = window.location;
             var path = l.pathname.replace(/^\/dominion-chemical-mockups/, "");
             if (path && path !== "/" && path !== "/404.html") {
                 sessionStorage.redirect = path + l.search + l.hash;
             }
-            // Always redirect to root for SPA entry
             window.location.replace("/dominion-chemical-mockups/");
         })();
     </script>
