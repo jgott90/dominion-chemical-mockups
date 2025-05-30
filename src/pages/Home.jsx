@@ -17,7 +17,7 @@ const Home = () => (
                         className="explore-button"
                         aria-label="Explore our products"
                     >
-                        Explore Our Products
+                        Explore Our Products23
                     </Link>
                 </div>
             </section>
