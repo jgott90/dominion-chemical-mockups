@@ -1,0 +1,1 @@
+const e=[{name:"Chemical Category",products:["Chemical One1"]},{name:"Chemical Category 2",products:["Chemical One","Chemical Two"]},{name:"Chemical Category 3",products:["Chemical One","Chemical Two","Chemical Three"]},{name:"Chemical Category 4",products:["Chemical One","Chemical Two","Chemical Three","Chemical Four"]}];export{e as i};
