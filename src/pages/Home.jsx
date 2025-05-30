@@ -11,7 +11,7 @@ const Home = () => (
                     <h1 id="hero-title" tabIndex={-1}>
                         Your Trusted Partner in Chemical Solutions
                     </h1>
-                    <p>Supplying quality industrial chemicals for all your needs.</p>
+                    <p>Test Supplying quality industrial chemicals for all your needs.</p>
                     <Link
                         to=""
                         className="explore-button"
