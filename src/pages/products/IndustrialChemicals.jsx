@@ -54,14 +54,7 @@ export default function IndustrialChemicals() {
 
     return (
         <>
-            <a
-                href="#main-content"
-                className="skip-link"
-                onClick={handleSkipToContent}
-                tabIndex="0"
-            >
-                Skip to main content
-            </a>
+
             <main className="chemicals-page-main" id="main-content">
                 <Breadcrumbs />
                 <h1 className="chemicals-title" tabIndex="-1" ref={mainHeadingRef}>

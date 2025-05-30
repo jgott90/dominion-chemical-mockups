@@ -46,14 +46,7 @@ export default function ChemicalCategory() {
 
     return (
         <>
-            <a
-                href="#main-content"
-                className="skip-link"
-                onClick={handleSkipToContent}
-                tabIndex="0"
-            >
-                Skip to main content
-            </a>
+
             <main className="chemical-category-main" id="main-content">
                 <Breadcrumbs />
                 <h1
