@@ -1,19 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { HashRouter } from "react-router-dom";
-import { HeadProvider } from "react-head";
-import App from "./App";
-import { SearchProvider } from "./context/SearchContext";
-import "./styles/index.css"; // Ensure your global CSS is imported here
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HashRouter basename="/">
-      <HeadProvider>
-        <SearchProvider>
-          <App />
-        </SearchProvider>
-      </HeadProvider>
-    </HashRouter>
+    <BrowserRouter basename="/dominion-chemical-mockups">
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
